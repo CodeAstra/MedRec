@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+  resources :patient_profiles, only: [:edit, :update]
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#land'
 
+  authenticated :user do
+    root to: 'home#dashboard', as: :authenticated_root
+  end
+
+  root 'home#land'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
