@@ -3,9 +3,10 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    if true # profile_incomplete
+    if current_user.patient_profile
       redirect_to edit_patient_profile_path
     else
+      redirect_to root_path
     end
   end
 end

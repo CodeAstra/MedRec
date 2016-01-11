@@ -4,14 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :role       
   has_one :patient_profile
-
   after_create :create_relevant_profile
 
 private
   def create_relevant_profile
-    if true # self.patient?
-      create_patient_profile
+    if self.patient_profile?
+      self.role.patient_profile?
     else
       # create_doctor_profile
     end
