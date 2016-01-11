@@ -16,6 +16,10 @@ class Role < ActiveRecord::Base
 
   has_many :users
 
+  def self.default_role
+    self.find_by(code: RoleName::PATIENT[:code])
+  end
+
   def patient?
     self.code == RoleName::PATIENT[:code]
   end

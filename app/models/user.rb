@@ -6,14 +6,28 @@ class User < ActiveRecord::Base
 
   belongs_to :role       
   has_one :patient_profile
+  before_create :set_default_role
   after_create :create_relevant_profile
 
+  def patient?
+    self.role.patient?
+  end
+
+  def doctor?
+    self.role.doctor?
+  end
+
+
 private
+  def set_default_role
+    self.role ||= Role.default_role
+  end
+
   def create_relevant_profile
-    if true 
-      
-    else
-      # create_doctor_profile
+    if self.patient?
+      self.create_patient_profile
+    else self.doctor?
+      # self.create_doctor_profile
     end
   end
 end

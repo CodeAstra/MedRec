@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    if current_user.patient_profile
+    if current_user.patient?
       redirect_to edit_patient_profile_path
     else
       redirect_to root_path
