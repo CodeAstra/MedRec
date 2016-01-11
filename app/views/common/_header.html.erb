@@ -12,7 +12,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <% if current_user %>
+        <li><a href="#">link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -22,10 +23,18 @@
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><%= link_to "Logout" , destroy_user_session_path , method: :delete %></li>
           </ul>
         </li>
         <li><a href="#">Link</a></li>
+        <% else %>
+          <li>
+              <%= link_to "Login" , new_user_session_path %>
+          </li>
+          <li>
+          <%= link_to "Are you New" , new_user_registration_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
