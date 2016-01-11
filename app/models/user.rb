@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
 
 private
   def create_relevant_profile
-    if self.patient_profile?
-      self.role.patient_profile?
+    if true 
+      
     else
       # create_doctor_profile
     end
