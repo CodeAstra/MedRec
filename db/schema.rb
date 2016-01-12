@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111104601) do
+ActiveRecord::Schema.define(version: 20160112071329) do
+
+  create_table "doctor_profiles", force: :cascade do |t|
+    t.integer  "age"
+    t.string   "qualification"
+    t.string   "contact"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "doctor_profiles", ["user_id"], name: "index_doctor_profiles_on_user_id"
 
   create_table "patient_profiles", force: :cascade do |t|
     t.integer  "age"
@@ -47,7 +58,6 @@ ActiveRecord::Schema.define(version: 20160111104601) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "name"
-    t.integer  "user_id"
     t.integer  "role_id"
     t.boolean  "profile_incomplete",     default: true
   end
@@ -55,6 +65,5 @@ ActiveRecord::Schema.define(version: 20160111104601) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["role_id"], name: "index_users_on_role_id"
-  add_index "users", ["user_id"], name: "index_users_on_user_id"
 
 end

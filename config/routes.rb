@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :doctor_profiles
   resources :patient_profiles, only: [:edit, :update]
   get 'dashboard' => 'home#dashboard', as: :dashboard
   get 'edit_profile' => 'home#edit_profile', as: :edit_profile
