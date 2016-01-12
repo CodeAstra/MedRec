@@ -12,6 +12,7 @@ class DoctorProfilesController < ApplicationController
           redirect_to dashboard_path(id: current_user.id) 
         else
           render update_path
+        end
 
     end
 
