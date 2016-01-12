@@ -12,7 +12,7 @@ class DoctorProfilesController < ApplicationController
         redirect_to dashboard_path(id: current_user.id) 
       else
         render success_path
-      end
+      end  
     end
 
     def doctor_params
