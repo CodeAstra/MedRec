@@ -31,4 +31,5 @@ private
       self.create_doctor_profile
     end
   end
+
 end
