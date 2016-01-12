@@ -27,7 +27,7 @@ private
     if self.patient?
       self.create_patient_profile
     else self.doctor?
-      # self.create_doctor_profile
+      self.create_doctor_profile
     end
   end
 end
