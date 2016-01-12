@@ -1,6 +1,9 @@
 <h1>List of Doctors</h1>
 <% if @doctor_profiles.any?%>
   <% @doctor_profiles.each do |doctor|%>
-    <%= doctor.qualification%>
+    <ul class = "well">
+      <li><%= doctor.qualification%></li>
+      <li><%= link_to "Book a Consultation" , doctor_profile_path(id: current_user.id)%></li>
+    </ul>
   <% end %>
 <% end %>
