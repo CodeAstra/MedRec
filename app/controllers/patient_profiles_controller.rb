@@ -11,7 +11,7 @@ class PatientProfilesController < ApplicationController
 
     def save_patient
       @patient = current_user.build_with(patient_params)
-      if patient.save
+      if @patient.save
         current_user.update_attribute(:profile_incomplete , false)
         redirect_to patient_profile_path(id: current_user.id)
       else
@@ -20,6 +20,6 @@ class PatientProfilesController < ApplicationController
     end
     
     def patient_params
-      params.require(:patient).permit(:age , :gender ,:blood_group ,:address , :city )
+      params.require(:patient_profile).permit(:age , :gender ,:blood_group ,:address , :city )
     end
 end
