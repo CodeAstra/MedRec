@@ -1,1 +1,6 @@
-dashboard.html.erb
+<% if current_user.patient?%>
+  <h1>I AmPatient</h1>
+  <%= link_to "Book An Appointment" , doctor_profiles_path %>
+<% else current_user.doctor? %>
+<h2>I am Doc</h2>
+<%end%>

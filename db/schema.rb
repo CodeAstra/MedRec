@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112071329) do
+ActiveRecord::Schema.define(version: 20160112114733) do
+
+  create_table "consultations", force: :cascade do |t|
+    t.integer  "patient_profile_id"
+    t.integer  "doctor_profile_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.datetime "appointment_date"
+    t.string   "comments"
+  end
+
+  add_index "consultations", ["doctor_profile_id"], name: "index_consultations_on_doctor_profile_id"
+  add_index "consultations", ["patient_profile_id"], name: "index_consultations_on_patient_profile_id"
 
   create_table "doctor_profiles", force: :cascade do |t|
     t.integer  "age"

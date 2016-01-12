@@ -2,7 +2,11 @@ class DoctorProfilesController < ApplicationController
   def update
     update_path
   end
+  
 
+  def index 
+    @doctor_profiles = DoctorProfile.all
+  end
   private
 
     def update_path
@@ -17,6 +21,6 @@ class DoctorProfilesController < ApplicationController
     end
 
     def doctor_params
-       params.require(:doctor_profile).permit(:age , :qualification , :contact)
+      params.require(:doctor_profile).permit(:age , :qualification , :contact)
     end
 end
