@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     if current_user.patient?
       @patient_profile = current_user.patient_profile
     elsif current_user.doctor?
-      @doctor_profile = current_user.doctor_profile
+      # @doctor_profile = current_user.doctor_profile
     else
       #handle hospital and pharmacy cases
     end
