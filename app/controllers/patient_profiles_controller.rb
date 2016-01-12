@@ -6,8 +6,8 @@ class PatientProfilesController < ApplicationController
   private
 
     def save_patient
-      @patient = current_user.patient_profile
-      if @patient.update_attributes(patient_params)
+      @patient_profile = current_user.patient_profile
+      if @patient_profile.update_attributes(patient_params)
         current_user.update_attribute(:profile_incomplete , false)
         redirect_to dashboard_path(id: current_user.id)
       else
