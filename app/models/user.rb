@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   belongs_to :role       
   has_one :patient_profile
+  has_one :doctor_profile
   before_create :set_default_role
   after_create :create_relevant_profile
 
@@ -30,4 +31,5 @@ private
       self.create_doctor_profile
     end
   end
+
 end
