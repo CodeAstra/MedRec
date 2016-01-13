@@ -1,5 +1,5 @@
 class PatientProfilesController < ApplicationController
-  def update_attributes
+  def update
     save_patient
   end
 

@@ -1,0 +1,12 @@
+
+<%= simple_form_for @consultation do |f|%>
+  <%= f.hidden_field :doctor_profile_id, :value => @doctor_profile_id %>
+  <%= f.hidden_field :patient_profile_id, :value => @patient_profile_id %>
+  <%= f.input :appointment_date %>
+  <%= f.input :comments %>
+
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+
+
