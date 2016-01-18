@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112114733) do
+ActiveRecord::Schema.define(version: 20160118110711) do
 
   create_table "consultations", force: :cascade do |t|
     t.integer  "patient_profile_id"
@@ -44,8 +44,9 @@ ActiveRecord::Schema.define(version: 20160112114733) do
     t.text     "address"
     t.string   "city"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.date     "date_of_birth"
   end
 
   add_index "patient_profiles", ["user_id"], name: "index_patient_profiles_on_user_id"
