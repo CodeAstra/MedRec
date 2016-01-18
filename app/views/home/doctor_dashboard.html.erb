@@ -1,10 +1,17 @@
-<h2>I am Doc</h2>
-<% @doctor_profile.each do |doctor|%>
-  <ul class = "well">
-    <li><%= doctor.user_id %></li>
-    <li><%= doctor.age %></li>
-    <li><%= doctor.qualification %></li>
-    <li><%= doctor.contact %></li>
-    <li><%= link_to "Book a Consultation" , new_consultation_path(:id)%></li>
-  </ul>
-<% end %>
+<div class="col-md-6">
+  <div class="container">
+    <h2> Upcoming Appointments</h2>
+    <div class="well">
+      <% @next_consultations.each do |consultation| %>
+      <p><%= consultation.patient_profile.user.name %></p>
+      <p><%= consultation.patient_profile.age %></p>
+      <p><%= link_to "Book a new appointment", new_consultation_path %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="container">
+    <h2>Search the patient</h2>
+  </div>
+</div>
