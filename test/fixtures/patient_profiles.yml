@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: patient_profiles
+#
+#  id          :integer          not null, primary key
+#  age         :integer
+#  gender      :integer
+#  contact     :string
+#  blood_group :integer
+#  address     :text
+#  city        :string
+#  user_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

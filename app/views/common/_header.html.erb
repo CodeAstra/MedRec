@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">MedRec</a>
+      <%= link_to "MedRec", root_path, class: "navbar-brand" %>      
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -39,7 +39,7 @@
               <%= link_to "Login" , new_user_session_path %>
           </li>
           <li>
-          <%= link_to "New ??" , new_user_registration_path %>
+              <%= link_to "New ??" , new_user_registration_path %>
           </li>
         <% end %>
       </ul>

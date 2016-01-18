@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160112114733) do
     t.integer  "doctor_profile_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.datetime "appointment_date"
+    t.date     "appointment_date"
     t.string   "comments"
   end
 
