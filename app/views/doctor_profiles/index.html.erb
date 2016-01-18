@@ -1,12 +1,11 @@
 <h1>List of Doctors</h1>
 <% if @doctor_profile.any?%>
   <% @doctor_profile.each do |doctor|%>
-    <ul class = "well">
-      <li><%= doctor.user_id %></li>
-      <li><%= doctor.qualification %></li>
-      <li><%= doctor.age %></li>
-       <li><%= doctor.contact %></li>
-      <li><%= link_to "Book a Consultation" , new_consultation_path(id: doctor.user_id)%></li>
-    </ul>
+    <div class = "well">
+      <%= link_to "Book a Consultation" , new_consultation_path(doctor_profile_id: doctor.id), class: "pull-right btn btn-primary" %>
+      <h3><%= doctor.user.name %></h3>
+      <p><%= doctor.qualification %></p>
+      <p>Phone: <%= doctor.contact %></p>
+    </div>
   <% end %>
 <% end %>

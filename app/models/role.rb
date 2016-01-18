@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: roles
+#
+#  id         :integer          not null, primary key
+#  code       :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Role < ActiveRecord::Base
 
   module RoleName
@@ -15,6 +25,8 @@ class Role < ActiveRecord::Base
   end
 
   has_many :users
+
+  validates :code, presence: true, uniqueness: true, numericality: true
 
   def self.default_role
     self.find_by(code: RoleName::PATIENT[:code])

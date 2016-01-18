@@ -1,8 +1,9 @@
+<h1>Book an appointment with <%= @consultation.doctor_profile.user.name %></h1>
 
 <%= simple_form_for @consultation do |f|%>
-  <%= f.hidden_field :doctor_profile_id, :value => @doctor_profile_id %>
-  <%= f.hidden_field :patient_profile_id, :value => @patient_profile_id %>
-  <%= f.input :appointment_date %>
+  <%= f.input :doctor_profile_id, as: :hidden %>
+  <%= f.input :patient_profile_id, as: :hidden %>
+  <%= f.input :appointment_date, as: :date, html5: true %>
   <%= f.input :comments %>
 
   <%= f.button :submit, class: "btn btn-primary" %>

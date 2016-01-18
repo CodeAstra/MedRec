@@ -1,0 +1,10 @@
+<h2>I am Doc</h2>
+<% @doctor_profile.each do |doctor|%>
+  <ul class = "well">
+    <li><%= doctor.user_id %></li>
+    <li><%= doctor.age %></li>
+    <li><%= doctor.qualification %></li>
+    <li><%= doctor.contact %></li>
+    <li><%= link_to "Book a Consultation" , new_consultation_path(:id)%></li>
+  </ul>
+<% end %>

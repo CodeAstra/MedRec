@@ -1,0 +1,22 @@
+<div id="patient_dashboard" class="container_fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well">
+        <h2>Track Medical Records</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem sint nisi, dolorum tenetur beatae deserunt nostrum accusantium veritatis ducimus at delectus ad eos corporis repudiandae assumenda adipisci facere, aliquid, sit.</p>
+        <a href="" class="btn btn-primary">Track New Record</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="well">
+        <h2>Upcoming Appointments</h2>
+        <ul>
+          <% @upcoming_consultations.each do |consultation| %>
+            <li><%= "#{consultation.doctor_profile.user.name} on #{consultation.appointment_date}" %></li>
+          <% end %>
+        </ul>
+        <%= link_to "Book New Appointment", doctor_profiles_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

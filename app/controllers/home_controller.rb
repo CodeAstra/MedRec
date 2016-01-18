@@ -1,14 +1,22 @@
 class HomeController < ApplicationController
+  skip_before_filter :authenticate_user!, only: [:land]
+
   def land
   end
 
   def dashboard
-    @doctor_profile = DoctorProfile.all
-    @patient_profile = PatientProfile.all
     if current_user.profile_incomplete?
       redirect_to edit_profile_path
     else
-      # Show the dashboard
+      if current_user.patient?
+        @patient_profile = current_user.patient_profile
+        @upcoming_consultations = @patient_profile.consultations
+            .where('appointment_date >= ?', Date.today)
+        render :patient_dashboard
+      else
+        @doctor_profile = current_user.doctor_profile
+        render :doctor_dashboard
+      end
     end
   end
 
