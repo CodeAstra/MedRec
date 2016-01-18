@@ -1,6 +1,25 @@
 <% if current_user.patient?%>
-  <h1>I AmPatient</h1>
+  <h1>See your consultations Here</h1>
+  <% @patient_profile.each do |patient|%>
+    <ul class = "well">
+      <li><%= patient.user_id %></li>
+      <li><%= patient.blood_group %></li>
+      <li><%= patient.age %></li>
+      <li><%= patient.gender %></li>
+      <li><%= patient.city %></li>
+      <li><%= link_to "Book a Consultation" , new_consultation_path(:id)%></li>
+    </ul>
+  <% end %>
   <%= link_to "Book An Appointment" , doctor_profiles_path %>
 <% else current_user.doctor? %>
-<h2>I am Doc</h2>
+  <h2>I am Doc</h2>
+    <% @doctor_profile.each do |doctor|%>
+      <ul class = "well">
+        <li><%= doctor.user_id %></li>
+        <li><%= doctor.age %></li>
+        <li><%= doctor.qualification %></li>
+        <li><%= doctor.contact %></li>
+        <li><%= link_to "Book a Consultation" , new_consultation_path(:id)%></li>
+      </ul>
+    <% end %>
 <%end%>

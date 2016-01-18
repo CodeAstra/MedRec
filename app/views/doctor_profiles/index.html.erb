@@ -2,8 +2,11 @@
 <% if @doctor_profile.any?%>
   <% @doctor_profile.each do |doctor|%>
     <ul class = "well">
-      <li><%= doctor.qualification%></li>
-      <li><%= link_to "See the details of a doc" , doctor_profile_path(id: doctor.id)%></li>
+      <li><%= doctor.user_id %></li>
+      <li><%= doctor.qualification %></li>
+      <li><%= doctor.age %></li>
+       <li><%= doctor.contact %></li>
+      <li><%= link_to "Book a Consultation" , new_consultation_path(id: doctor.user_id)%></li>
     </ul>
   <% end %>
 <% end %>

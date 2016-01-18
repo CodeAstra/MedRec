@@ -10,8 +10,8 @@ class DoctorProfilesController < ApplicationController
   def show
     # @doctor_profile = DoctorProfile.find(params[:id])
     @consultation = Consultation.new
-    @doctor_profile_id = DoctorProfile.find(params[:id])
-    @patient_profile_id = current_user.id
+    # @doctor_profile_id = DoctorProfile.find(params[:id])
+    # @patient_profile_id = current_user.id
   end
   private
 

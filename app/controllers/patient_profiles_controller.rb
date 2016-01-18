@@ -3,9 +3,6 @@ class PatientProfilesController < ApplicationController
     save_patient
   end
 
-
-  
-
   private
 
     def save_patient
@@ -14,7 +11,7 @@ class PatientProfilesController < ApplicationController
         current_user.update_attribute(:profile_incomplete , false)
         redirect_to dashboard_path(id: current_user.id)
       else
-        render success_path
+        render :update
       end
     end
 

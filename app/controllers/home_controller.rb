@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   end
 
   def dashboard
+    @doctor_profile = DoctorProfile.all
+    @patient_profile = PatientProfile.all
     if current_user.profile_incomplete?
       redirect_to edit_profile_path
     else

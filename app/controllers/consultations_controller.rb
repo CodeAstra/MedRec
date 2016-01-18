@@ -1,9 +1,10 @@
 class ConsultationsController < ApplicationController
 
-   
 
-  def new 
+  def new
     @consultation = Consultation.new
+    @patient_profile_id = current_user.id
+    @doctor_profile_id = DoctorProfile.find_by(user_id: params[:id]).user_id
   end
 
   def create
@@ -13,6 +14,10 @@ class ConsultationsController < ApplicationController
     else
       redirect_to consultation_path
     end
+  end
+
+  def show
+    @consultation = Consultation.all
   end
 
 
