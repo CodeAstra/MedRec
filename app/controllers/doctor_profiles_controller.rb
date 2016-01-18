@@ -2,15 +2,16 @@ class DoctorProfilesController < ApplicationController
   def update
     update_path
   end
-  
-  def show
-    @consultation = Consultation.new
-    @doctor_profile_id = DoctorProfile.find(params[:id])
-    @patient_profile_id = current_user.id
-  end
 
   def index 
     @doctor_profile = DoctorProfile.all
+  end
+  
+  def show
+    # @doctor_profile = DoctorProfile.find(params[:id])
+    @consultation = Consultation.new
+    @doctor_profile_id = DoctorProfile.find(params[:id])
+    @patient_profile_id = current_user.id
   end
   private
 
@@ -27,4 +28,5 @@ class DoctorProfilesController < ApplicationController
     def doctor_params
       params.require(:doctor_profile).permit(:age , :qualification , :contact)
     end
+
 end

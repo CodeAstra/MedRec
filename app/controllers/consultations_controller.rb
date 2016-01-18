@@ -1,5 +1,10 @@
 class ConsultationsController < ApplicationController
 
+   
+
+  def new 
+    @consultation = Consultation.new
+  end
 
   def create
     @consultation = Consultation.new(consultation_params)
@@ -13,6 +18,7 @@ class ConsultationsController < ApplicationController
 
   private
   def consultation_params
-    params.require(:consultation).permit(:patient_profile_id, :doctor_profile_id,  :appointment_date, :comments)    
+    params.require(:consultation).permit( :patient_profile_id, :doctor_profile_id , :appointment_date, :comments)    
   end
+
 end

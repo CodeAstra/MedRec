@@ -3,6 +3,9 @@ class PatientProfilesController < ApplicationController
     save_patient
   end
 
+
+  
+
   private
 
     def save_patient
@@ -18,4 +21,6 @@ class PatientProfilesController < ApplicationController
     def patient_params
       params.require(:patient_profile).permit(:age , :gender ,:blood_group ,:address , :city )
     end
+
+
 end

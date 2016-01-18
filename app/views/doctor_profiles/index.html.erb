@@ -3,7 +3,7 @@
   <% @doctor_profile.each do |doctor|%>
     <ul class = "well">
       <li><%= doctor.qualification%></li>
-      <li><%= link_to "Book a Consultation" , doctor_profile_path(id: doctor.id)%></li>
+      <li><%= link_to "See the details of a doc" , doctor_profile_path(id: doctor.id)%></li>
     </ul>
   <% end %>
 <% end %>
