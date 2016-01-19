@@ -1,17 +1,19 @@
 <div class="col-md-6">
-  <div class="container">
-    <h2> Upcoming Appointments</h2>
-    <div class="well">
-      <% @next_consultations.each do |consultation| %>
-      <p><%= consultation.patient_profile.user.name %></p>
-      <p><%= consultation.patient_profile.age %></p>
-      <p><%= link_to "Book a new appointment", new_consultation_path %></p>
-      <% end %>
-    </div>
+  <h2> Upcoming Appointments</h2>
+  <div class="well">
+    <% @next_consultations.each do |consultation| %>
+    <p><%= consultation.patient_profile.user.name %></p>
+    <p><%= consultation.appointment_date %></p>
+    <p><%= consultation.comments %></p>
+    <% end %>
   </div>
 </div>
 <div class="col-md-6">
   <div class="container">
     <h2>Search the patient</h2>
+    <p>
+      <input type="text">   
+    </p>
+    <button class= "btn btn-primary">Search</button>
   </div>
 </div>

@@ -1,17 +1,17 @@
 <div class="tab-pane" role="tabpanel" id="step3">
   <div class="container-fluid">
     <fieldset class="well">
-      <legend>Test Report</legend>
+      <legend>Personal Details</legend>
+      
       <div class="form-group">
-        <label for="inputAddress" class="col-lg-2 control-label">Lab: </label>
         <div class="col-lg-10">
-          <input type="Address" class="form-control" id="inputAddress" placeholder="Address">
+          <%= f.input :address, 
+          required: true, input_html: { class: "form-control control-label"} %>
         </div>
       </div>
       <div class="form-group">
-        <label for="inputCity" class="col-lg-2 control-label">Image:</label>
         <div class="col-lg-10">
-          <input type="City" class="form-control" id="inputCity" placeholder="City">
+          <%= f.input :city, required: true, input_html: { class: "form-control control-label"} %>
         </div>
       </div>
       <ul class="list-inline pull-right">

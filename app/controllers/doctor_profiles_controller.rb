@@ -6,19 +6,21 @@ class DoctorProfilesController < ApplicationController
       redirect_to dashboard_path
     end
   end
-  
-  def show
-    @consultation = Consultation.new
-    # @doctor_profile_id = DoctorProfile.find(params[:id])
-    # @patient_profile_id = current_user.id
-  end
 
   def index 
     @doctor_profile = DoctorProfile.all
   end
-
+  
+  def show
+    @consultation = Consultation.new
+    # @doctor_profile = DoctorProfile.find(params[:id])
+    # @doctor_profile_id = DoctorProfile.find(params[:id])
+    # @patient_profile_id = current_user.id
+  end
+    
   private
     def doctor_params
       params.require(:doctor_profile).permit(:age , :qualification , :contact)
     end
+
 end

@@ -16,7 +16,7 @@ class HomeController < ApplicationController
       else
         @doctor_profile = current_user.doctor_profile
         @next_consultations = @doctor_profile.consultations
-               .where('appointment_date >= ?', Date.today)                     
+            .where('appointment_date >= ?' , Date.today)
         render :doctor_dashboard
       end
     end

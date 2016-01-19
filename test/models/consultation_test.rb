@@ -7,7 +7,7 @@
 #  doctor_profile_id  :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  appointment_date   :date
+#  appointment_date   :datetime
 #  comments           :string
 #
 

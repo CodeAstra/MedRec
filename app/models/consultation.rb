@@ -7,11 +7,11 @@
 #  doctor_profile_id  :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  appointment_date   :date
+#  appointment_date   :datetime
 #  comments           :string
 #
 
 class Consultation < ActiveRecord::Base
   belongs_to :patient_profile
-  belongs_to :doctor_profile
+  belongs_to :doctor_profile 
 end
