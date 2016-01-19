@@ -3,8 +3,10 @@
   <div class="well">  
     <% @next_appointments.each do |consultation|%>
       <h2><%= consultation.patient_profile.user.name %></h2>
+      <h3><%= consultation.patient_profile.unique_id %></h3>
       <p><%= consultation.comments%></p>
     <%end%>
+    <%= link_to "Setup New Appointment" , new_consultation_path, class: "btn btn-primary" %>
   </div>
 </div>
 <div class="col-md-6">
@@ -13,6 +15,5 @@
     <input type="text">   
   </p>
   <button class= "btn btn-primary">Search</button>
- <%= link_to "book an Appointment" , new_consultation_path%>
 
 </div>
