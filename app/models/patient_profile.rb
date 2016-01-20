@@ -21,6 +21,7 @@ class PatientProfile < ActiveRecord::Base
   # has_many :doctor_profiles, through: :consultations
   belongs_to :user
   after_save :populate_unique_id
+  has_many :medical_reports
 
   # def unique_id
   #    userGenerate = User.name.split("").count

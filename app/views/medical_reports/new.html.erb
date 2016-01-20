@@ -1,0 +1,8 @@
+<h1>Add your report here</h1>
+<%= simple_form_for [@patient_profile , @medical_report] do |f|%>
+  <%= f.input :title %>
+  <%= f.input :report_date%>
+  <%= f.label :attachment %>
+  <%= f.file_field :attachment %>
+  <%= f.submit%>
+<% end %>

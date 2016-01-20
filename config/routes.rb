@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :consultations
   resources :doctor_profiles
-  resources :patient_profiles, only: [:edit, :update]
+  resources :patient_profiles, only: [:edit, :update] do
+    resources :medical_reports
+  end
   get 'dashboard' => 'home#dashboard', as: :dashboard
   get 'edit_profile' => 'home#edit_profile', as: :edit_profile
 
