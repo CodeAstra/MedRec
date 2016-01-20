@@ -6,18 +6,23 @@ class MedicalReportsController < ApplicationController
   end
 
   def create
-   @patient_profile = current_user.patient_profile
-   @medical_report = @patient_profile.medical_reports.new(report_params)
-   if @medical_report.save
-     redirect_to patient_profile_medical_reports_path(patient_profile_id: @patient_profile.id) 
-   else
-    render 'new'
+     @patient_profile = current_user.patient_profile
+     @medical_report = @patient_profile.medical_reports.new(report_params)
+     if @medical_report.save
+       redirect_to patient_profile_medical_reports_path(patient_profile_id: @patient_profile.id ) 
+     else
+      render 'new'
+    end
   end
-end
 
   def index 
-     # @medical_reports = @patient_profile.medical_reports.all
      @patient_profile = current_user.patient_profile
+     @medical_report = @patient_profile.medical_reports.all
+  end
+
+  def show
+     # @medical_report = @patient_profile.medical_report.find_by(params[:id])
+     # @patient_profile = current_user.patient_profile
   end
 
   def show
