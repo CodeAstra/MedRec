@@ -4,7 +4,7 @@
       <div class="well">
         <h2>Track Medical Records</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem sint nisi, dolorum tenetur beatae deserunt nostrum accusantium veritatis ducimus at delectus ad eos corporis repudiandae assumenda adipisci facere, aliquid, sit.</p>
-        <a href="" class="btn btn-primary">Track New Record</a>
+        <%= link_to "Track a record" , patient_profile_medical_reports_path(patient_profile_id: @patient_profile.id) ,class: "btn btn-primary" %>
       </div>
     </div>
     <div class="col-md-6">

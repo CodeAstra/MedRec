@@ -23,6 +23,7 @@ class PatientProfile < ActiveRecord::Base
   
   # after_update :unique_id
   after_save :populate_unique_id
+  has_many :medical_reports
 
   # def unique_id
   #    userGenerate = User.name.split("").count

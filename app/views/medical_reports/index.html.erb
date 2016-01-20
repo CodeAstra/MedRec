@@ -1,0 +1,28 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Tile</th>
+      <th>Report Date</th>
+      <th>Attachment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patient_profile.medical_reports.each do |report| %>
+      <tr>
+        <td> <%= report.title %></td>
+        <td> <%= report.report_date %></td>
+        <td> <%= report.attachment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add a report here" , new_patient_profile_medical_report_path(patient_profile_id: @patient_profile)%>
