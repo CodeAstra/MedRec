@@ -47,6 +47,7 @@ if Rails.env == "development"
     patient_profile = patient.patient_profile
     patient_profile.age = Faker::Number.between(30, 60)
     patient_profile.contact = Faker::PhoneNumber.cell_phone
+    patient_profile.date_of_birth = Faker::Date.between(30.years.ago, 60.years.ago)
     patient_profile.save!
 
     dot
