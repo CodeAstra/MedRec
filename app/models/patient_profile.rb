@@ -19,4 +19,11 @@ class PatientProfile < ActiveRecord::Base
   # has_many :doctor_profiles, through: :consultations
   belongs_to :user
   
+  # after_update :unique_id
+
+  # def unique_id
+  #    userGenerate = User.name.split("").count
+  #    userDob = @patient_profile.date_of_birth.split("").count
+  #    id = userGenerate[0] + userGenerate[n-1] + userDob[0] + userDob[1]  
+  # end
 end
