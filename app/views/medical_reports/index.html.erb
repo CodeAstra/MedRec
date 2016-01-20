@@ -1,3 +1,16 @@
 <h1>Here the reports are</h1>
 
-<%= link_to "Add a report here" , new_patient_profile_medical_report_path(patient_profile_id: @patient_profile)%>
+ <div class="row">
+  <% @medical_report.each do |report|%>
+   <div class="col-md-4">
+      <h2><%= report.title%></h2>
+      <p><%= report.report_date%></p>
+      <%= image_tag report.attachment%>
+      <%= link_to "Show" , patient_profile_medical_report_path(@patient_profile , report)%>
+   </div>
+  <% end %>
+</div>
+ 
+
+
+<%= link_to "Add a report here" , new_patient_profile_medical_report_path(@patient_profile)%>
