@@ -19,7 +19,9 @@
       <tr>
         <td> <%= report.title %></td>
         <td> <%= report.report_date %></td>
-        <td><%= link_to "Show" , patient_profile_medical_report_path(@patient_profile , report)%></td>
+        <td><%= link_to "Show" , patient_profile_medical_report_path(@patient_profile , report), class: "btn btn-info"%>
+          <br />
+        <%= link_to "Delete",  patient_profile_medical_report_path(@patient_profile , report), method: :delete, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

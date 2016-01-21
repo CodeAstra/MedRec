@@ -21,8 +21,17 @@ class MedicalReportsController < ApplicationController
   end
 
   def show
-      @patient_profile = current_user.patient_profile
-      @medical_report = @patient_profile.medical_reports.find(params[:id])
+
+    @patient_profile = current_user.patient_profile
+    @medical_report = @patient_profile.medical_reports.find(params[:id])
+ end
+
+  def destroy
+    @patient_profile = current_user.patient_profile
+    @medical_report = @patient_profile.medical_reports.find(params[:id])
+    @medical_report.destroy
+    redirect_to patient_profile_medical_reports_path
+
   end
 
   private

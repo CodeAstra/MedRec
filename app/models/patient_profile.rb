@@ -40,4 +40,6 @@ private
     unique_str += self.date_of_birth.strftime("%d%m")
     self.update_attribute(:unique_id , unique_str.upcase)
   end
+
+  
 end

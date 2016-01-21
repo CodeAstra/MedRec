@@ -1,5 +1,5 @@
-<div class="col-md-6">
   <h2>Upcoming Appointments</h2>
+<div class="col-md-6">
   <div class="well">  
     <% @next_appointments.each do |consultation|%>
       <h2><%= consultation.patient_profile.user.name %></h2>
@@ -11,10 +11,16 @@
   </div>
 </div>
 <div class="col-md-6">
-  <h2>Search the patient</h2>
-  <p>
-    <input type="text">   
-  </p>
-  <button class= "btn btn-primary">Search</button>
-
+  <div class="row well">
+    <%= form_tag dashboard_path  , :method => 'get' do %>
+      <%= text_field_tag :search ,params[:search]%>
+      <%= submit_tag "search" , class: "btn btn-primary" , :unique_id => nil %>
+    <% end %>
+  </div>
+  <div class="row-details well">
+    <h2>Name: </h2>
+    <p>Age: </p>
+    <p>Blood Group: </p>
+    <button class= "btn btn-primary">  See Full Details with reports </button>
+  </div>
 </div>

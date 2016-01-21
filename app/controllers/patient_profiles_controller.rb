@@ -9,9 +9,15 @@ class PatientProfilesController < ApplicationController
       end
   end
 
+  def index
+    @patient_profile = current_user.patient_profiles.search(params[:serach])
+  end
+
 
 private
   def patient_params
     params.require(:patient_profile).permit(:age , :gender ,:blood_group ,:address , :date_of_birth, :city )
   end
+
+  
 end
