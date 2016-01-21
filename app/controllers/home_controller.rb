@@ -18,6 +18,13 @@ class HomeController < ApplicationController
         @next_appointments = @doctor_profile.consultations
             .where('appointment_date >= ?' , Date.today)
         render :doctor_dashboard
+        @patient_profile = PatientProfile.all
+        if params[:search]
+          @patient_search_profiles = PatientProfile.search(params[:search]).order("created_at DESC")
+
+        else
+          @patient_search_profiles = PatientProfile.all.order('created_at DESC')
+        end
       end
     end
   end

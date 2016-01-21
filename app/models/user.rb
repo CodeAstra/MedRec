@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
     self.role.doctor?
   end
 
+  
 
 private
   def set_default_role

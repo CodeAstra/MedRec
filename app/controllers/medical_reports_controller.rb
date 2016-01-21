@@ -15,12 +15,14 @@ class MedicalReportsController < ApplicationController
     end
   end
 
-  def index 
-     @patient_profile = current_user.patient_profile
+  def index
+     @patient_profile = PatientProfile.find(params[:patient_profile_id])
      @medical_report = @patient_profile.medical_reports.all
   end
 
   def show
+    @patient_profile = current_user.patient_profile
+     @medical_report = @patient_profile.medical_reports.find_by(params[:id])
   end
 
   def destroy

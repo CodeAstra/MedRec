@@ -1,4 +1,5 @@
 class PatientProfilesController < ApplicationController
+
   def update
       @patient_profile = current_user.patient_profile
       if @patient_profile.update_attributes(patient_params)
@@ -9,6 +10,9 @@ class PatientProfilesController < ApplicationController
       end
   end
 
+  def index
+    @patient_profile = PatientProfile.find_by(unique_id: params[:search])
+  end
 
 private
   def patient_params
