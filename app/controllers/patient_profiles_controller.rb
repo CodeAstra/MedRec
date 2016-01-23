@@ -3,7 +3,6 @@ class PatientProfilesController < ApplicationController
   def update
       @patient_profile = current_user.patient_profile
       if @patient_profile.update_attributes(patient_params)
-        
         redirect_to dashboard_path(id: current_user.id)
       else
         render :update

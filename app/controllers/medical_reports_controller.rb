@@ -9,7 +9,7 @@ class MedicalReportsController < ApplicationController
      @patient_profile = current_user.patient_profile
      @medical_report = @patient_profile.medical_reports.new(report_params)
      if @medical_report.save
-       redirect_to patient_profile_medical_reports_path(patient_profile_id: @patient_profile.id ) 
+       redirect_to patient_profile_medical_reports_path(patient_profile_id: @patient_profile) 
      else
       render 'new'
     end

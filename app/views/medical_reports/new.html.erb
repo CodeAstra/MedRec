@@ -8,9 +8,9 @@
   </div>
 <% end %>
 <h1>Add your report here</h1>
-<%= simple_form_for [@patient_profile , @medical_report] do |f|%>
-  <%= f.input :title %>
-  <%= f.input :report_date%>
-  <%= f.input :attachment, as: :file %>
-  <%= f.submit%>
-<% end %>
+  <%= simple_form_for [@patient_profile , @medical_report] do |f|%>
+    <%= f.input :title %>
+    <%= f.input :report_date%>
+    <%= f.input :attachment, as: :file %>
+    <%= f.submit%>
+  <% end %>
