@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :consultations
-  resources :doctor_profiles
+  resources :doctor_profiles 
   resources :patient_profiles, only: [:index , :show ,:edit, :update] do
     resources :medical_reports
   end

@@ -9,6 +9,7 @@ class ConsultationsController < ApplicationController
       @consultation.doctor_profile = DoctorProfile.find(params[:doctor_profile_id])
     else
       @patient_workflow = false
+      @consultation.patient_unique_id = params[:patient_unique_id] if params[:patient_unique_id]
       # @consultation.patient_profile = PatientProfile.find(params[:patient_profile_id])
       @consultation.doctor_profile = current_user.doctor_profile
     end

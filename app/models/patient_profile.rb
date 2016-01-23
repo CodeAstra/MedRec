@@ -18,18 +18,16 @@
 
 class PatientProfile < ActiveRecord::Base
   has_many :consultations
-  # has_many :doctor_profiles, through: :consultations
+  has_many :visited_doctor_profiles, through: :consultations , source: :doctor_profiles
   belongs_to :user
   
   # after_update :unique_id
   after_save :populate_unique_id
   has_many :medical_reports
 
-  # def unique_id
-  #    userGenerate = User.name.split("").count
-  #    userDob = @patient_profile.date_of_birth.split("").count
-  #    id = userGenerate[0] + userGenerate[n-1] + userDob[0] + userDob[1]  
-  # end
+  def self.search(search)
+    where("unique_id LIKE ?", "%#{search}%") 
+  end
 
 private
   def populate_unique_id

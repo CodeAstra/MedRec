@@ -7,10 +7,21 @@
     </ul>
   </div>
 <% end %>
-<h1>Add your report here</h1>
-<%= simple_form_for [@patient_profile , @medical_report] do |f|%>
-  <%= f.input :title %>
-  <%= f.input :report_date%>
-  <%= f.input :attachment, as: :file %>
-  <%= f.submit%>
+<% if current_user.patient? %>
+  <h1>Add your report here</h1>
+  <%= simple_form_for [@patient_profile , @medical_report] do |f|%>
+    <%= f.input :title %>
+    <%= f.input :report_date%>
+    <%= f.input :attachment, as: :file %>
+    <%= f.submit%>
+  <% end %>
+  <% else %>
+    <h2>add a report</h2>
+    <%= simple_form_for  [@patient_profile , @medical_report] do |f|%>
+      <%= f.input :patient_profile_id , as: :hidden %>
+      <%= f.input :title %>
+      <%= f.input :report_date%>
+      <%= f.input :attachment, as: :file %>
+      <%= f.submit%>
+    <% end %>
 <% end %>

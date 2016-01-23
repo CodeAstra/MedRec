@@ -11,16 +11,16 @@
   </div>
 </div>
 <div class="col-md-6">
-  <div class="row well">
-    <%= form_tag dashboard_path  , :method => 'get' do %>
-      <%= text_field_tag :search ,params[:search]%>
-      <%= submit_tag "search" , class: "btn btn-primary" , :unique_id => nil %>
-    <% end %>
-  </div>
-  <div class="row-details well">
-    <h2>Name: </h2>
-    <p>Age: </p>
-    <p>Blood Group: </p>
-    <button class= "btn btn-primary">  See Full Details with reports </button>
-  </div>
+
+  <h2>Search the patient</h2>
+  
+  <%= form_tag(patient_profiles_path, :method => "get", id: "search-form", remote: true) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  <br>
+
+  <div id="patient_search"></div>
 </div>
+
+

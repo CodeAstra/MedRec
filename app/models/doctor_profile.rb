@@ -13,6 +13,8 @@
 
 class DoctorProfile < ActiveRecord::Base
   has_many :consultations
-  # has_many :patient_profiles, through: :consultations
+  has_many :visited_patient_profiles, through: :consultations , source: :patient_profiles 
   belongs_to :user
+
+
 end

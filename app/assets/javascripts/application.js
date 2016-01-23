@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require home.js
 //= require turbolinks
+//= require home.js.erb
+//= require home.js
 //= require_tree .
