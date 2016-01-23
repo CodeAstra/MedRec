@@ -21,7 +21,7 @@ class MedicalReportsController < ApplicationController
       end
     else
       @patient_profile = PatientProfile.find(params[:patient_profile_id])
-      @medical_report = MedicalReport.new(report_params)
+      @medical_report = @patient_profile.medical_reports.new(report_params)
       if @medical_report.save
         redirect_to patient_profile_medical_reports_path(patient_profile_id: @patient_profile)
       else
@@ -36,16 +36,25 @@ class MedicalReportsController < ApplicationController
   end
 
   def show
-    @patient_profile = current_user.patient_profile
-    @medical_report = @patient_profile.medical_reports.find(params[:id])
+    if current_user.patient?
+      @patient_profile = current_user.patient_profile
+      @medical_report = @patient_profile.medical_reports.find(params[:id])
+    else
+      @patient_profile = PatientProfile.find(params[:patient_profile_id])
+      @medical_report = @patient_profile.medical_reports.find(params[:id])
+    end
   end
 
 
   def destroy
-    @patient_profile = current_user.patient_profile
-    @medical_report = @patient_profile.medical_reports.find(params[:id])
-    @medical_report.destroy
-    redirect_to patient_profile_medical_reports_path
+    if current_user.patient?
+      @patient_profile = current_user.patient_profile
+      @medical_report = @patient_profile.medical_reports.find(params[:id])
+      @medical_report.destroy
+      redirect_to patient_profile_medical_reports_path
+    else
+              
+    end
   end
 
   private
@@ -53,7 +62,4 @@ class MedicalReportsController < ApplicationController
       params.require(:medical_report).permit(:patient_profile_id, :title , :report_date , :attachment)
     end
 
-    def patient_report_params
-      params.require(:medical_report).permit(:patient_profile_id , :title , :report_date , :attachment)
-    end
 end
