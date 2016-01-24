@@ -44,21 +44,30 @@
               <div class="tab-pane active" role="tabpanel" id="step1">
                 <div class="container-fluid">
                   <div class="well">
-                    <h1>You have successfully signed up!</h1>
-                    <p>Please complete the form details</p>
+                    <div class="slide1">    
+                      <h1>You have successfully signed up!</h1>
+                      <p>Please complete the form details</p>
+                      <ul class="b pull-right">
+                        <li><button type="button" class="btn btn-primary next-step" >Save and continue</button></li>
+                      </ul>
+                    </div>
                   </div> 
-                  <ul class="list-inline pull-right">
-                    <li><button type="button" class="btn btn-primary next-step" >Save and continue</button></li>
-                  </ul>
                 </div>
               </div>
 
               <%= render partial: 'home/register', locals: {f: f} %>
               <%= render partial: 'home/details', locals: {f: f} %>
               <div class="tab-pane" role="tabpanel" id="complete">
-                <h3>Complete</h3>
-                <p>You have successfully completed all steps.</p>
-                <%= f.submit "Save" %>
+                <div class="container-fluid">
+                  <div class="well">
+                    <div class="slide">
+                      <p>You have successfully completed all steps.</p>
+                      <ul class="slide pull-right">
+                        <%= f.submit "Save", class: "btn btn-primary"  %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="clearfix"></div>
             </div>

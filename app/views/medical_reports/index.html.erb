@@ -6,7 +6,7 @@
 
 <br />
 
-<table class="table table-bordered table-striped">
+<table class="table table-hover table-striped">
   <thead>
     <tr>
       <th>Tile</th>
@@ -16,12 +16,14 @@
   </thead>
   <tbody>
     <% @patient_profile.medical_reports.each do |report| %>
-      <tr>
+      <tr class="info">
         <td> <%= report.title %></td>
         <td> <%= report.report_date %></td>
         <td><%= link_to "Show" , patient_profile_medical_report_path(@patient_profile , report), class: "btn btn-info"%>
           <br />
-        <%= link_to "Delete",  patient_profile_medical_report_path(@patient_profile , report), method: :delete, class: "btn btn-danger" %></td>
+          <% if current_user.patient?%>
+            <%= link_to "Delete",  patient_profile_medical_report_path(@patient_profile , report), method: :delete, class: "btn btn-danger" %></td>
+          <%end%>
       </tr>
     <% end %>
   </tbody>

@@ -18,7 +18,7 @@
 
 class PatientProfile < ActiveRecord::Base
   has_many :consultations
-  # has_many :doctor_profiles, through: :consultations
+  has_many :visited_doctor_profiles, through: :consultations , source: :doctor_profiles
   belongs_to :user
   
   # after_update :unique_id
@@ -27,7 +27,6 @@ class PatientProfile < ActiveRecord::Base
 
   def self.search(search)
     where("unique_id LIKE ?", "%#{search}%") 
-    # return "Blah"
   end
 
 private
@@ -39,4 +38,6 @@ private
     unique_str += self.date_of_birth.strftime("%d%m")
     self.update_attribute(:unique_id , unique_str.upcase)
   end
+
+  
 end

@@ -22,5 +22,4 @@ class DoctorProfilesController < ApplicationController
     def doctor_params
       params.require(:doctor_profile).permit(:age , :qualification , :contact)
     end
-
 end

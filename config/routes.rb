@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   resources :consultations
-  resources :doctor_profiles
-  resources :patient_profiles, only: [:index, :edit, :update] do
+  resources :doctor_profiles 
+  resources :patient_profiles, only: [:index , :show ,:edit, :update] do
     resources :medical_reports
   end
   get 'dashboard' => 'home#dashboard', as: :dashboard

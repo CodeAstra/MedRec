@@ -1,32 +1,34 @@
 <div class="tab-pane" role="tabpanel" id="step2">
-  <fieldset class="well">
-    <legend>Profile Details</legend>
-    <div class="form-group">
-      <div class="col-lg-10">
-        <%= f.input :age, required: true, input_html: { class: "form-control control-label"} %>
+  <div class="container-fluid">
+    <fieldset class="well">
+      <h3>Profile Details</h3>
+      <div class="form-group">
+        <div class="col-lg-10">
+          <%= f.input :age, required: true, input_html: { class: "form-control control-label"} %>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="col-lg-10">
-        <%= f.input :date_of_birth, required: true, html5: true, as: :date %>
+      <div class="form-group">
+        <div class="col-lg-10">
+          <%= f.input :date_of_birth, required: true, html5: true, as: :date %>
+        </div>
       </div>
-    </div>
-    
-    <div class="form-group">
-      <div class="col-lg-10">
-      <%= f.input :blood_group, required: true, placeholder: "Blood-Group", input_html: { class: "form-control control-label"} %>
-        <!-- <select class="form-control" id="select">
-          <option>A+</option>
-          <option>AB+</option>
-          <option>O+</option>
-          <option>A-</option>
-          <option>AB-</option>
-        </select> -->
-        <br> 
+      
+      <div class="form-group">
+        <div class="col-lg-10">
+        <%= f.input :blood_group, required: true, placeholder: "Blood-Group", input_html: { class: "form-control control-label"} %>
+          <!-- <select class="form-control" id="select">
+            <option>A+</option>
+            <option>AB+</option>
+            <option>O+</option>
+            <option>A-</option>
+            <option>AB-</option>
+          </select> -->
+          <br> 
+        </div>
       </div>
-    </div>
-     <ul class="list-inline pull-right">
-      <li><button type="button" class="btn btn-primary next-step" >Save and continue</button></li>
-    </ul>
-  </fieldset>
+       <ul class="list-inline pull-right">
+        <li><button type="button" class="btn btn-primary next-step" >Save and continue</button></li>
+      </ul>
+    </fieldset>
+  </div>
 </div>

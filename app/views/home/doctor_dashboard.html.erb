@@ -1,5 +1,5 @@
-<div class="col-md-6">
   <h2>Upcoming Appointments</h2>
+<div class="col-md-6">
   <div class="well">  
     <% @next_appointments.each do |consultation|%>
       <h2><%= consultation.patient_profile.user.name %></h2>
@@ -11,6 +11,7 @@
   </div>
 </div>
 <div class="col-md-6">
+
   <h2>Search the patient</h2>
   
   <%= form_tag(patient_profiles_path, :method => "get", id: "search-form", remote: true) do %>
@@ -21,4 +22,5 @@
 
   <div id="patient_search"></div>
 </div>
+
 
