@@ -19,14 +19,27 @@
       <tr class="info">
         <td> <%= report.title %></td>
         <td> <%= report.report_date %></td>
-        <td><%= link_to "Show" , patient_profile_medical_report_path(@patient_profile , report), class: "btn btn-info"%>
-          <br />
-          <% if current_user.patient?%>
-            <%= link_to "Delete",  patient_profile_medical_report_path(@patient_profile , report), method: :delete, class: "btn btn-danger" %></td>
-          <%end%>
+        <td>
+          <div class="col-md-3">
+            <div class="round round-lg hollow ">
+              <span>
+                <%= link_to "" , patient_profile_medical_report_path(@patient_profile , report), class: "glyphicon glyphicon-file"%>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <% if current_user.patient?%>
+              <div class="round round-lg hollow green">
+                <span>
+                  <%= link_to "",  patient_profile_medical_report_path(@patient_profile , report), method: :delete, class: "glyphicon glyphicon-trash" %>
+                </span>
+              </div>
+            <%end%>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "Add a report here" , new_patient_profile_medical_report_path(@patient_profile) ,class: "btn btn-primary" %>
+<%= link_to "" , new_patient_profile_medical_report_path(@patient_profile) ,class: "fa fa-medkit fa-3x" %>
