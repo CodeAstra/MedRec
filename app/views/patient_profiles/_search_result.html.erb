@@ -1,6 +1,7 @@
 <div class="well">
   <h2><%= @patient_profile.user.name %></h2>
   <h3><%= @patient_profile.unique_id %></h3>
+  <p><%= PatientProfile::BloodGroup.name_from_code(@patient_profile.blood_group)%></p>  
   <%= link_to "Book Appointment", new_consultation_path(patient_unique_id: @patient_profile.unique_id), class: "btn btn-primary" %>
   <%= link_to "View Medical History", patient_profile_medical_reports_path(@patient_profile), class: "btn btn-primary" %>
 </div>

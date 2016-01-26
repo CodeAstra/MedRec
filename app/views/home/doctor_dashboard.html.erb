@@ -1,6 +1,6 @@
   <h2>Upcoming Appointments</h2>
 <div class="col-md-6">
-  <div class="well">  
+  <div class="first row">  
     <% @next_appointments.each do |consultation|%>
       <h2><%= consultation.patient_profile.user.name %></h2>
       <h3><%= consultation.patient_profile.unique_id %></h3>

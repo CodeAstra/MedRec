@@ -14,6 +14,13 @@ Role::RoleName.all_codes.each do |code|
   Role.find_or_create_by({code: code})
 end
 
+PatientProfile::BloodGroup.all_groups.each do |group|
+  PatientProfile.find_or_create_by({group: group})
+end
+
+
+
+
 
 if Rails.env == "development"
   puts "Seeding Doctors:"
