@@ -59,7 +59,7 @@ class MedicalReportsController < ApplicationController
 
   private
     def report_params
-      params.require(:medical_report).permit(:patient_profile_id, :title , :report_date , :attachment)
+      params.require(:medical_report).permit(:patient_profile_id, :title , :report_date , :attachment, :prescription)
     end
 
 end

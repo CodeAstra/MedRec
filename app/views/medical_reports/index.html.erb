@@ -7,34 +7,37 @@
 <br />
 
 <table class="table table-hover table-striped">
+    <% @patient_profile.medical_reports.each do |report| %>
   <thead>
     <tr>
-      <th>Tile</th>
-      <th>Report Date</th>
-      <th>Link</th>
+      <th>Title</th>
+      <th><%="Prescription"  "Test"%></th>
+      <th>
+        <div class="col-md-3">Show</div>
+        <div class="col-md-3">Delete</div>
+      </th> 
     </tr>
   </thead>
   <tbody>
-    <% @patient_profile.medical_reports.each do |report| %>
-      <tr class="info">
-        <td> <%= report.title %></td>
-        <td> <%= report.report_date %></td>
-        <td>
-          <div class="col-md-3">
-            <div class="round round-lg hollow ">
+    <tr class="info">
+      <td> <%= report.title %></td>
+      <td> <%= report.report_date %></td>
+      <td>
+        <div class="col-md-3">
+          <div class="round round-lg hollow ">
+            <span>
+              <%= link_to "" , patient_profile_medical_report_path(@patient_profile , report), class: "glyphicon glyphicon-file"%>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <% if current_user.patient?%>
+            <div class="round round-lg hollow green">
               <span>
-                <%= link_to "" , patient_profile_medical_report_path(@patient_profile , report), class: "glyphicon glyphicon-file"%>
+                <%= link_to "",  patient_profile_medical_report_path(@patient_profile , report), method: :delete, class: "glyphicon glyphicon-trash" %>
               </span>
             </div>
-          </div>
-          <div class="col-md-3">
-            <% if current_user.patient?%>
-              <div class="round round-lg hollow green">
-                <span>
-                  <%= link_to "",  patient_profile_medical_report_path(@patient_profile , report), method: :delete, class: "glyphicon glyphicon-trash" %>
-                </span>
-              </div>
-            <%end%>
+          <%end%>
           </div>
         </td>
       </tr>
