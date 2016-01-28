@@ -1,11 +1,8 @@
 class HomeController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:land]
-  layout :land
 
   def land
-    if current_user.nil?
-      render layout: 'land'
-    end
+    render layout: 'land'
   end
 
   def dashboard
@@ -24,10 +21,10 @@ class HomeController < ApplicationController
         render :doctor_dashboard
         @patient_profile = PatientProfile.all
         if params[:search]
-          @patient_search_profiles = PatientProfile.search(params[:search]).order("created_at DESC")
+          @patient_search_profiles = PatientProfile.search(params[:search]).order("created_at: :desc")
 
         else
-          @patient_search_profiles = PatientProfile.all.order('created_at DESC')
+          @patient_search_profiles = PatientProfile.all.order('created_at: :desc')
         end
       end
     end
