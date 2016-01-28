@@ -1,17 +1,11 @@
-<% if !flash[:notice].blank? %>
-   <div class = "alert alert-info">
-      <%= flash[:notice] %>
-   </div>
-<% end %>
 
-<br />
 
 <table class="table table-hover table-striped">
     <% @patient_profile.medical_reports.each do |report| %>
   <thead>
     <tr>
       <th>Title</th>
-      <th><%="Prescription"  "Test"%></th>
+      <th><%= report.prescription? ? "Prescription" : "Test"%></th>
       <th>
         <div class="col-md-3">Show</div>
         <div class="col-md-3">Delete</div>
