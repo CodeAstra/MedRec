@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: medical_reports
+#
+#  id                 :integer          not null, primary key
+#  title              :string
+#  report_date        :datetime
+#  attachment         :string
+#  patient_profile_id :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  type               :integer
+#  prescription       :boolean          default(FALSE)
+#
+
 class MedicalReport < ActiveRecord::Base
   belongs_to :patient_profile
   
@@ -15,7 +30,4 @@ class MedicalReport < ActiveRecord::Base
      self.update_attribute(:prescription , true)
   end
 
-  def test?
-
-  end
 end

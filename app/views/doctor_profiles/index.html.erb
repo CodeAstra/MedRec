@@ -1,11 +1,36 @@
-<h1>List of Doctors</h1>
-<% if @doctor_profile.any?%>
-  <% @doctor_profile.each do |doctor|%>
-    <div class = "well">
-      <%= link_to "Book a Consultation" , new_consultation_path(doctor_profile_id: doctor.id), class: "pull-right btn btn-primary" %>
-      <h3><%= doctor.user.name %></h3>
-      <p><%= doctor.qualification %></p>
-      <p>Phone: <%= doctor.contact %></p>
+<section class="team">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+          <h6 class="description">OUR TEAM</h6>
+          <div class="row pt-md">
+            <% if @doctor_profiles.any?%>
+              <% @doctor_profiles.each do |doctor|%>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                  <!-- <div class="img-box">
+                    <ul class="text-center">
+                      <li><%= fa_icon "facebook" %></li>
+                      <li><%= fa_icon "twitter" %></li> 
+                      <li><%= fa_icon "linkedin" %></li>
+                    </ul>
+                  </div>
+ -->                  <h1><%= doctor.user.name %></h1>
+                  <h2><%= doctor.qualification %></h2>
+                  <p>Phone: <%= doctor.contact %></p>
+                  <%= link_to "Book a Consultation" , new_consultation_path(doctor_profile_id: doctor.id), class: "btn btn-primary" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1 text-center">
+
+      <h6>Coded with <i class="fa fa-heart red"></i> by <a href="http://www.nabeel.co.in" target="_blank">Paras and Venkat </a></h6>
+    </div>   
+  </div>
+</footer>

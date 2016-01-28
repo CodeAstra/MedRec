@@ -10,6 +10,15 @@ class PatientProfilesController < ApplicationController
       end
   end
 
+
+  # def index
+  #   @patient_profiles = PatientProfile.all
+  # end
+
+  # def show
+  #   @patient_profile = PatientProfile.find_by(unique_id: params[:search])
+  # end
+
   def index
     @patient_profile = PatientProfile.find_by(unique_id: params[:search])
   end

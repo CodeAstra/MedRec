@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:land]
+  layout :land
 
   def land
+    if current_user.nil?
+      render layout: 'land'
+    end
   end
 
   def dashboard
@@ -39,5 +43,4 @@ class HomeController < ApplicationController
     end
   end
 
-  
 end

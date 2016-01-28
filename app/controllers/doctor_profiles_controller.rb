@@ -8,7 +8,7 @@ class DoctorProfilesController < ApplicationController
   end
 
   def index 
-    @doctor_profile = DoctorProfile.all
+    @doctor_profiles = DoctorProfile.all
   end
   
   def show

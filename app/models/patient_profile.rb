@@ -59,7 +59,7 @@ class PatientProfile < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("unique_id LIKE ?", "%#{search}%") 
+    where("unique_id :search") 
   end
 
 private

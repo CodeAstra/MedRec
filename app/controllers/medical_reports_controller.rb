@@ -3,11 +3,10 @@ class MedicalReportsController < ApplicationController
   def new
     if current_user.patient?
       @patient_profile = current_user.patient_profile
-      @medical_report = MedicalReport.new
     else
       @patient_profile = PatientProfile.find(params[:patient_profile_id])
-      @medical_report = MedicalReport.new
     end
+    @medical_report = MedicalReport.new
   end
 
   def create
@@ -32,17 +31,16 @@ class MedicalReportsController < ApplicationController
 
   def index
      @patient_profile = PatientProfile.find(params[:patient_profile_id])
-     @medical_report = @patient_profile.medical_reports.all
+     @medical_reports = @patient_profile.medical_reports.all
   end
 
   def show
     if current_user.patient?
       @patient_profile = current_user.patient_profile
-      @medical_report = @patient_profile.medical_reports.find(params[:id])
     else
       @patient_profile = PatientProfile.find(params[:patient_profile_id])
-      @medical_report = @patient_profile.medical_reports.find(params[:id])
     end
+    @medical_report = @patient_profile.medical_reports.find(params[:id])
   end
 
 
@@ -51,9 +49,7 @@ class MedicalReportsController < ApplicationController
       @patient_profile = current_user.patient_profile
       @medical_report = @patient_profile.medical_reports.find(params[:id])
       @medical_report.destroy
-      redirect_to patient_profile_medical_reports_path
-    else
-              
+      redirect_to patient_profile_medical_reports_path     
     end
   end
 
