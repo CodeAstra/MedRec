@@ -1,11 +1,11 @@
 
 
 <table class="table table-hover table-striped">
-    <% @patient_profile.medical_reports.each do |report| %>
   <thead>
     <tr>
       <th>Title</th>
-      <th><%= report.prescription? ? "Prescription" : "Test"%></th>
+      <th>Test Type </th>
+      <th>Conducted Date</th>
       <th>
         <div class="col-md-3">Show</div>
         <div class="col-md-3">Delete</div>
@@ -13,9 +13,15 @@
     </tr>
   </thead>
   <tbody>
+    <% @patient_profile.medical_reports.each do |report| %>
     <tr class="info">
       <td> <%= report.title %></td>
-      <td> <%= report.report_date %></td>
+      <td> 
+        <%= report.prescription ? "Prescription" : "Test"%> 
+      </td>
+      <td>
+        <%= report.report_date %>
+      </td>
       <td>
         <div class="col-md-3">
           <div class="round round-lg hollow ">
