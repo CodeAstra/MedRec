@@ -1,12 +1,17 @@
 
 <div class="container">
-    <ul class="timeline col-md-8">
-      <% @patient_profile.medical_reports.each do |report| %>              
-        <li>
-          <div class="timeline-badge info"><i class="fa fa-smile-o"></i></div>
-          <div class="timeline-panel row">
+    <ul class="timeline col-md-10">
+      <li class= "First">
+        <div class="timeline-badge primary Second"><i class="fa fa-star-o"></i></div>
+        <div class="timeline-panel Third">
+          <%= link_to "Add File" , new_patient_profile_medical_report_path(@patient_profile) %>        </div>
+      </li>
+      <% @patient_profile.medical_reports.each do |report| %>
+        <li class= "First">
+          <div class="timeline-badge info  Second"><i class="fa fa-smile-o"></i></div>
+          <div class="timeline-panel Third">
             <div class="col-md-6">
-              
+
               <div class="timeline-heading">
                 <h3 class="timeline-title">Title:<%= report.title %></h3>
               </div>
@@ -16,11 +21,11 @@
               </div>
             </div>
             <div class="col-md-1 col-md-offset-4">
-              <%= link_to "" , patient_profile_medical_report_path(@patient_profile , report), class: "glyphicon glyphicon-file fa-3x"%> 
+              <%= link_to "" , patient_profile_medical_report_path(@patient_profile , report), class: "glyphicon glyphicon-file fa-2x"%>
             </div>
-            <div class="col-md-1"> 
+            <div class="col-md-1">
               <% if current_user.patient?%>
-                <%= link_to "",  patient_profile_medical_report_path(@patient_profile , report), method: :delete, class: "fa fa-times-circle-o fa-3x danger" %>
+                <%= link_to content_tag(:i, '', class: "fa fa-times-circle-o fa-2x"), patient_profile_medical_report_path(@patient_profile , report), method: :delete %>
               <%end%>
             </div>
           </div>
@@ -28,5 +33,3 @@
       <%end%>
     </ul>
 </div>
-<%= link_to "" , new_patient_profile_medical_report_path(@patient_profile) ,class: "fa fa-medkit fa-3x" %>
-
