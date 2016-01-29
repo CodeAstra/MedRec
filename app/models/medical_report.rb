@@ -13,6 +13,10 @@
 #  prescription       :boolean          default(FALSE)
 #
 
+#  type               :integer
+#  prescription       :boolean          default(FALSE)
+
+
 class MedicalReport < ActiveRecord::Base
   belongs_to :patient_profile
   

@@ -13,6 +13,10 @@
 #  prescription       :boolean          default(FALSE)
 #
 
+#  type               :integer
+#  prescription       :boolean          default(FALSE)
+
+
 require 'test_helper'
 
 class MedicalReportTest < ActiveSupport::TestCase

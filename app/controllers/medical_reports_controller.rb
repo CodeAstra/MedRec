@@ -6,7 +6,7 @@ class MedicalReportsController < ApplicationController
     else
       @patient_profile = PatientProfile.find(params[:patient_profile_id])
     end
-    @medical_report = MedicalReport.new
+    @medical_report = @patient_profile.medical_reports.new
   end
 
   def create
@@ -15,24 +15,13 @@ class MedicalReportsController < ApplicationController
     else
       @patient_profile = PatientProfile.find(params[:patient_profile_id])
     end
-      @medical_report = @patient_profile.medical_reports.new(report_params)
-      if @medical_report.save
-        redirect_to patient_profile_medical_reports_path(patient_profile_id: @patient_profile) 
-      else
+    @medical_report = @patient_profile.medical_reports.new(report_params)
+    if @medical_report.save
+      redirect_to patient_profile_medical_reports_path(@patient_profile) 
+    else
         render 'new'
-      end
-  end    
-
-    # else
-    #   @patient_profile = PatientProfile.find(params[:patient_profile_id])
-    #   @medical_report = @patient_profile.medical_reports.new(report_params)
-    #   if @medical_report.save
-    #     redirect_to patient_profile_medical_reports_path(patient_profile_id: @patient_profile)
-    #   else
-    #     render 'new'
-    #   end
-    # end
-  # end
+    end
+  end
 
   def index
      @patient_profile = PatientProfile.find(params[:patient_profile_id])

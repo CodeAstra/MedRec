@@ -1,3 +1,4 @@
+
 @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
 .timeline {
@@ -38,7 +39,7 @@
     .Third {
       width: calc( 100% - 75px );
       float: right;
-      border: 1px solid #d4d4d4;
+      border: 1px solid $border-color;
       border-radius: 2px;
       padding: 20px;
       position: relative;
@@ -51,8 +52,8 @@
         left: -15px;
         display: inline-block;
         border-top: 15px solid transparent;
-        border-right: 15px solid #ccc;
-        border-left: 0 solid #ccc;
+        border-right: 15px solid $border-color;
+        border-left: 0 solid $border-color;
         border-bottom: 15px solid transparent;
         content: "";
       }
@@ -63,15 +64,15 @@
         left: -14px;
         display: inline-block;
         border-top: 14px solid transparent;
-        border-right: 14px solid #fff;
-        border-left: 0 solid #fff;
+        border-right: 14px solid $wizard;
+        border-left: 0 solid $wizard;
         border-bottom: 14px solid transparent;
         content: "";
       }
     }
   
     .Second {
-      color: #fff;
+      color: $wizard;
       width: 50px;
       height: 50px;
       line-height: 50px;
@@ -95,3 +96,4 @@
     }
   }
 }
+

@@ -1,28 +1,5 @@
-<div id="patient_dashboard" class="container_fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="first view">
-        <h2>Track Medical Records</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem sint nisi, dolorum tenetur beatae deserunt nostrum accusantium veritatis ducimus at delectus ad eos corporis repudiandae assumenda adipisci facere, aliquid, sit.</p>
-        <i class=""></i>
-        <%= link_to "Track a record" , patient_profile_medical_reports_path(patient_profile_id: @patient_profile.id)  %>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class=" secone view">
-        <h2>Upcoming Appointments</h2>
-        <ul>
-          <% @upcoming_consultations.each do |consultation| %>
-            <li><%= "#{consultation.doctor_profile.user.name} on #{consultation.appointment_date}" %></li>
-          <% end %>
-        </ul>
-        <%= link_to "Book New Appointment", doctor_profiles_path%>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- <div class="container">
+<div class="container">
   <div class="page-header">
     <h1 id="timeline">Track Medical Records</h1>
   </div>
@@ -41,7 +18,7 @@
     </li>
     <% @upcoming_consultations.each do |consultation| %> 
       <li class="timeline-inverted">
-        <div class="timeline-badge warning"><i class="fa fa-calendar-check-o"></i></div>
+        <div class="timeline-badge info"><i class="fa fa-calendar-check-o"></i></div>
         <div class="timeline-panel">
           <div class="timeline-heading">
             <h4 class="timeline-title">Upcoming Appointments</h4>
@@ -53,7 +30,7 @@
       </li>
     <% end %> 
     <li>
-      <div class="timeline-badge danger"><i class="fa fa-book"></i></div>
+      <div class="timeline-badge primary"><i class="fa fa-book"></i></div>
       <div class="timeline-panel">
         <div class="timeline-heading">
           <h4 class="timeline-title">Book New Appointment</h4>
@@ -64,4 +41,4 @@
       </div>
     </li>
   </ul>
-</div> -->
+</div>
