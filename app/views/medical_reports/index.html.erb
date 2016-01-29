@@ -1,5 +1,10 @@
 <div class="container">
     <ul class="timeline col-md-10">
+      <li class= "First">
+        <div class="timeline-badge primary Second"><i class="fa fa-star-o"></i></div>
+        <div class="timeline-panel Third">
+          <%= link_to "Add File" , new_patient_profile_medical_report_path(@patient_profile) %>        </div>
+      </li>
       <% @patient_profile.medical_reports.each do |report| %>
         <li class= "First">
           <div class="timeline-badge info  Second"><i class="fa fa-smile-o"></i></div>
@@ -26,9 +31,4 @@
         </li>
       <%end%>
     </ul>
-    <div class="col-md-1 col-md-offset-1"> 
-      
-      <%= link_to "Add File" , new_patient_profile_medical_report_path(@patient_profile) ,class: "fa fa-medkit fa-2x" %> 
-
-    </div>
 </div>
