@@ -9,6 +9,9 @@
 #  patient_profile_id :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  type               :integer
+#  prescription       :boolean          default(FALSE)
+#
 
 #  type               :integer
 #  prescription       :boolean          default(FALSE)

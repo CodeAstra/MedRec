@@ -9,7 +9,6 @@
 #  updated_at         :datetime         not null
 #  appointment_date   :date
 #  comments           :string
-#  unique_id          :string
 #
 
 require 'test_helper'

@@ -39,7 +39,7 @@
     .Third {
       width: calc( 100% - 75px );
       float: right;
-      border: 1px solid $before;
+      border: 1px solid $border-color;
       border-radius: 2px;
       padding: 20px;
       position: relative;
@@ -53,8 +53,8 @@
         left: -16px;
         display: inline-block;
         border-top: 15px solid transparent;
-        border-right: 15px solid $before;
-        border-left: 0 solid $before;
+        border-right: 15px solid $border-color;
+        border-left: 0 solid $border-color;
         border-bottom: 15px solid transparent;
         content: "";
       }
