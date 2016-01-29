@@ -14,7 +14,7 @@
 
   <h2>Search patient By ID</h2>
   
-  <%= form_tag(patient_profiles_path, :method => "get", id: "search-form", remote: true) do %>
+  <%= form_tag((patient_profiles_path), :method => "get", id: "search-form", remote: true) do %>
     <h4><%= text_field_tag :search, params[:search], placeholder: "Search Patient" %></h4>
     <p><%= submit_tag "Search" , class: "btn btn-primary" %></p>
   <% end %>
@@ -23,7 +23,9 @@
   <div class="progress progress-striped active">
     <div class="progress-bar" style="width: 45%"></div>
   </div>
-  <div id="patient_search"></div>
+  <div id="patient_search">
+    
+  </div>
 </div>
 
 

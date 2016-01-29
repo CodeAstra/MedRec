@@ -15,9 +15,8 @@
         <% if current_user %>
         <li>
           <% if current_user.patient? %>
-             <%= link_to " Edit Profile" , edit_profile_path %>
+             <%= link_to "" , edit_profile_path , class: "fa fa-pencil fa-2x"%>
           <% else current_user.doctor? %>
-             <%= link_to "" , edit_profile_path , class: "fa fa-pencil-square fa-3x"%>
           <% end %>
         </li>
         <li class="dropdown">

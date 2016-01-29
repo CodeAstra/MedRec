@@ -25,8 +25,8 @@ class ConsultationsController < ApplicationController
     end
   end
 
-  def show
-    @consultation = Consultation.all
+  def index
+    @consultations = Consultation.all
   end
 
 
