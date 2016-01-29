@@ -19,7 +19,7 @@ class MedicalReportsController < ApplicationController
     if @medical_report.save
       redirect_to patient_profile_medical_reports_path(@patient_profile) 
     else
-        render 'new'
+      render 'new'
     end
   end
 

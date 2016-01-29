@@ -13,13 +13,13 @@
     position: absolute;
     content: "";
     width: 3px;
-    background-color: #eeeeee;
+    background-color: $timeline;
     left: 25px;
     margin-right: -1.5px;
   }
 
   .primary {
-  background-color: #2e6da4 !important;
+  background-color: $icons !important;
   }
 
   .First{
@@ -49,7 +49,8 @@
       &::before {
         position: absolute;
         top: 26px;
-        left: -15px;
+        right: 63em;
+        left: -16px;
         display: inline-block;
         border-top: 15px solid transparent;
         border-right: 15px solid $border-color;
@@ -82,7 +83,7 @@
       top: 16px;
       left: 0px;
       margin-right: -25px;
-      background-color: #999999;
+      background-color: $heading;
       z-index: 100;
       border-top-right-radius: 50%;
       border-top-left-radius: 50%;
@@ -91,7 +92,7 @@
       transform: translateX(50%);
       
       .info {
-        background-color: #5bc0de !important;
+        background-color: $secondary_colour !important;
       }
     }
   }
