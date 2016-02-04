@@ -43,6 +43,7 @@ gem 'devise'
 gem 'annotate'
 
 gem 'carrierwave'
+gem 'cloudinary'
 
 gem 'gravatarify', '~> 3.0.0'
 
