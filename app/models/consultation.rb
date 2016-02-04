@@ -9,7 +9,6 @@
 #  updated_at         :datetime         not null
 #  appointment_date   :date
 #  comments           :string
-#  unique_id          :string
 #
 
 class Consultation < ActiveRecord::Base
@@ -25,4 +24,5 @@ private
 
     self.patient_profile = PatientProfile.find_by(unique_id: self.patient_unique_id)
   end
+
 end

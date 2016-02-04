@@ -9,7 +9,6 @@
 #  updated_at         :datetime         not null
 #  appointment_date   :date
 #  comments           :string
-#  unique_id          :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
