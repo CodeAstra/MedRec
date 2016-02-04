@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20160125124902) do
     t.datetime "updated_at",         null: false
     t.date     "appointment_date"
     t.string   "comments"
-    t.string   "unique_id"
   end
 
   add_index "consultations", ["doctor_profile_id"], name: "index_consultations_on_doctor_profile_id"
