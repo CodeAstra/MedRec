@@ -1,0 +1,23 @@
+<% if current_user.patient?%>
+  <h2>Book an appointment with <%= @consultation.doctor_profile.user.name %></h2>
+<% else %>
+   <h2>Booking with patient: <%= @patient_profile.user.name%><h2>
+<% end%>
+<div class="col-md-6">
+    
+  <%= simple_form_for @consultation do |f|%>
+    <%= f.input :doctor_profile_id, as: :hidden %>
+    <% if @patient_workflow %>
+      <%= f.input :patient_profile_id, as: :hidden %>
+    <% else %>
+      <p><%= f.input :patient_unique_id %></p>
+    <% end %>
+    <p><%= f.input :appointment_date, as: :date, html5: true %></p>
+    <%= f.input :comments %>
+
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
+

@@ -1,0 +1,121 @@
+// Place all the styles related to the doctor_profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300);
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.team{
+  padding:75px 0;
+}
+
+h6.description{
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: $heading;
+  border-bottom: 1px solid rgba(0, 0, 0,0.1);
+  padding-bottom: 5px;
+}
+
+.profile {
+  margin-top: 25px;
+  width: 33%;
+
+  h1{
+    font-weight: normal;
+    font-size: 20px;
+    margin: 12px 0 0 0;
+  }
+
+  h2{
+    font-size: 14px;
+    font-weight: lighter;
+    margin-top: 12px;
+  }
+
+  .img-box{
+    opacity: 1;
+    display: block;
+    position: relative;
+  
+
+    &::after{
+      content: "";
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      position: absolute;
+      right: 90px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    &::after, .img-box ul, .img-box ul li{
+      -webkit-transition: all 0.5s ease-in-out 0s;
+      -moz-transition: all 0.5s ease-in-out 0s;
+      transition: all 0.5s ease-in-out 0s;
+    }
+  }
+}
+
+.img-box ul {
+  position: absolute;
+  z-index: 2;
+  bottom: 50px;
+  text-align: center;
+  width: 71%;
+  padding-left: 0px;
+  height: 0px;
+  margin:0px;
+  opacity: 0;
+
+  i {
+    font-size: 20px;
+    letter-spacing: 10px;
+  }
+
+  li {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid $fa-icon;
+    margin: 2px;
+    padding: 5px;
+    display: inline-block;
+  }
+}
+
+.img-box {
+  ul a {
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  a:hover li {
+    border-color: #fff;
+    color: $fa-icon;
+  }
+}
+
+.img-box:hover:after {
+  opacity: 1;
+}
+.img-box:hover ul {
+  opacity: 1;
+}
+
+a{
+  color: $fa-icon;
+
+  &::hover{
+    text-decoration: none;
+    color: $image-hover;
+  }
+}
+
+i.red{
+  color: $image-colour;
+}

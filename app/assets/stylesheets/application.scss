@@ -1,4 +1,11 @@
 @import "bootstrap-sprockets";
-@import "bootswatch/sandstorm/variables";
+@import "bootswatch/cerulean/variables";
 @import "bootstrap";
-@import "bootswatch/sandstorm/bootswatch";
+@import "bootswatch/cerulean/bootswatch";
+@import "theme";
+@import "home";
+@import "land";
+@import "patient_profiles";
+@import "doctor_profiles";
+@import "medical_reports";
+@import "font-awesome"

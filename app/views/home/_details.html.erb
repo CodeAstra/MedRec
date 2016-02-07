@@ -1,0 +1,23 @@
+<div class="tab-pane" role="tabpanel" id="step3">
+  <div class="container-fluid">
+    <fieldset class="well">
+      <h3>Personal Details</h3>
+      
+      <div class="form-group">
+        <div class="col-lg-10">
+          <%= f.input :address, 
+          required: true, input_html: { class: "form-control control-label"} %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10">
+          <%= f.input :city, required: true, input_html: { class: "form-control control-label"} %>
+        </div>
+      </div>
+      <ul class="list-inline pull-right">
+        <li><button type="button" class="btn btn-primary prev-step">Previous</button></li>
+        <li><button type="button" class="btn btn-primary next-step" >Save and continue</button></li>
+      </ul>
+    </fieldset>
+  </div>
+</div>
