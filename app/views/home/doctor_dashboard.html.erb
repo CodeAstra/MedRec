@@ -1,5 +1,6 @@
 <h2>Upcoming Appointments</h2>
 <div class="col-md-6">
+  <div class="well">
   <div class="first row">  
     <% @next_appointments.each do |consultation|%>
       <h2><%= consultation.patient_profile.user.name %></h2>
@@ -9,9 +10,10 @@
     <%end%>
     <%= link_to "Book Appointment" , new_consultation_path, class: "btn btn-primary" %>
   </div>
+  </div>
 </div>
 <div class="col-md-6">
-
+  <div class="well">
   <h2>Search patient By ID</h2>
   
   <%= form_tag((patient_profiles_path), :method => "get", id: "search-form", remote: true) do %>
@@ -26,6 +28,7 @@
   <div id="patient_search">
     
   </div>
+</div>
 </div>
 
 
