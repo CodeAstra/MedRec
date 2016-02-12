@@ -1,19 +1,19 @@
 
 <div class="container">
-    <ul class="timeline col-md-10">
-      <li class= "First">
+    <ul class="timeline">
+      <li class= "timeline-inverted">
         <div class="timeline-badge primary Second">
           <i class="fa fa-star-o">  
           </i>
         </div>
-        <div class="timeline-panel Third">
+        <div class="timeline-panel">
           <%= link_to "Add File" , new_patient_profile_medical_report_path(@patient_profile) %> 
         </div>
       </li>
       <% @patient_profile.medical_reports.each do |report| %>
         <li class= "First">
           <div class="timeline-badge info  Second"><i class="fa fa-smile-o"></i></div>
-          <div class="timeline-panel Third">
+          <div class="timeline-panel">
             <div class="col-md-6">
 
               <div class="timeline-heading">

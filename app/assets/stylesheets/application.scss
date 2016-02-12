@@ -1,10 +1,11 @@
 @import "bootstrap-sprockets";
-@import "bootswatch/cerulean/variables";
+@import "bootswatch/readable/variables";
 @import "bootstrap";
-@import "bootswatch/cerulean/bootswatch";
+@import "bootswatch/readable/bootswatch";
 @import "theme";
 @import "home";
 @import "land";
+@import "common";
 @import "patient_profiles";
 @import "doctor_profiles";
 @import "medical_reports";

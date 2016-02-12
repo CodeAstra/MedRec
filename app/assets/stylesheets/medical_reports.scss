@@ -1,11 +1,7 @@
-
-@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
-
 .timeline {
   list-style: none;
   padding: 20px 0 20px;
   position: relative;
-
 
   &::before {
     top: 0;
@@ -13,65 +9,23 @@
     position: absolute;
     content: "";
     width: 3px;
-    background-color: #eeeeee;
-    left: 25px;
-    margin-right: -1.5px;
+    background-color: $timeline;
+    left: 50%;
+    margin-left: -1.5px;
   }
 
-  .primary {
-  background-color: #2e6da4 !important;
-  }
-
-  .First{
+  li {
     margin-bottom: 20px;
     position: relative;
-  
+    
     &::before,
     &::after {
       content: "";
       display: table;
-    }
-
-    &::after {
       clear: both;
     }
- 
-    .Third {
-      width: calc( 100% - 75px );
-      float: right;
-      border: 1px solid $border-color;
-      border-radius: 2px;
-      padding: 20px;
-      position: relative;
-      -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
 
-      &::before {
-        position: absolute;
-        top: 26px;
-        left: -15px;
-        display: inline-block;
-        border-top: 15px solid transparent;
-        border-right: 15px solid $border-color;
-        border-left: 0 solid $border-color;
-        border-bottom: 15px solid transparent;
-        content: "";
-      }
-
-      &::after {
-        position: absolute;
-        top: 27px;
-        left: -14px;
-        display: inline-block;
-        border-top: 14px solid transparent;
-        border-right: 14px solid $wizard;
-        border-left: 0 solid $wizard;
-        border-bottom: 14px solid transparent;
-        content: "";
-      }
-    }
-  
-    .Second {
+    .timeline-badge {
       color: $wizard;
       width: 50px;
       height: 50px;
@@ -80,20 +34,128 @@
       text-align: center;
       position: absolute;
       top: 16px;
-      left: 0px;
-      margin-right: -25px;
-      background-color: #999999;
+      left: 50%;
+      margin-left: -25px;
+      background-color: $heading;
       z-index: 100;
       border-top-right-radius: 50%;
       border-top-left-radius: 50%;
       border-bottom-right-radius: 50%;
       border-bottom-left-radius: 50%;
-      transform: translateX(50%);
+    }
+
+    .timeline-panel {
+      width: 46%;
+      float: left;
+      border: 1px solid $nav-tabs;
+      border-radius: 2px;
+      padding: 20px;
+      position: relative;
+      -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
       
-      .info {
-        background-color: #5bc0de !important;
+      &::before {
+        position: absolute;
+        top: 26px;
+        right: -15px;
+        display: inline-block;
+        border-top: 15px solid transparent;
+        border-left: 15px solid $before;
+        border-right: 0 solid $before;
+        border-bottom: 15px solid transparent;
+        content: "";
+      }
+
+      &::after {
+        position: absolute;
+        top: 27px;
+        right: -14px;
+        display: inline-block;
+        border-top: 14px solid transparent;
+        border-left: 14px solid $before;
+        border-right: 0 solid $before;
+        border-bottom: 14px solid transparent;
+        content: "";
+      }
+    }
+  }
+
+  .primary {
+    background-color: $icons !important;
+  }
+
+  .info {
+    background-color: $secondary_colour !important;
+  }
+
+  .timeline-inverted { 
+    .timeline-panel {
+      float: right;
+      
+      &::before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+      }
+
+      &::after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
       }
     }
   }
 }
 
+
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+  margin-bottom: 0;
+}
+
+.timeline-body > p + p {
+  margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+  
+  .timeline > li {
+
+    .timeline-panel {
+      width: calc(100% - 90px);
+      width: -moz-calc(100% - 90px);
+      width: -webkit-calc(100% - 90px);
+    }
+
+    .timeline-badge {
+      left: 15px;
+      margin-left: 0;
+      top: 16px;
+    }
+
+    .timeline-panel {
+      float: right;
+     
+      &::before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+      }
+
+      &::after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
+      }
+    }
+  }
+}
