@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hdsqnrijk
+  api_key: '197138391974893'
+  api_secret: qDrbymBRQSDevzrvpLG3GCwpPyI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hdsqnrijk
+  api_key: '197138391974893'
+  api_secret: qDrbymBRQSDevzrvpLG3GCwpPyI
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hdsqnrijk
+  api_key: '197138391974893'
+  api_secret: qDrbymBRQSDevzrvpLG3GCwpPyI
+  enhance_image_tag: true
+  static_image_support: false

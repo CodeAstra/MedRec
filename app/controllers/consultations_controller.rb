@@ -12,7 +12,7 @@ class ConsultationsController < ApplicationController
       @consultation.patient_unique_id = params[:patient_unique_id] if params[:patient_unique_id]
       #@consultation.patient_profile = PatientProfile.find(params[:patient_profile_id])
       @consultation.doctor_profile = current_user.doctor_profile
-      @patient_profile  = PatientProfile.find_by(unique_id: @consultation.patient_unique_id)
+      @patient_profile = PatientProfile.find_by(unique_id: @consultation.patient_unique_id)
     end
   end
 

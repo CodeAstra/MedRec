@@ -14,14 +14,6 @@ Role::RoleName.all_codes.each do |code|
   Role.find_or_create_by({code: code})
 end
 
-PatientProfile::BloodGroup.all_groups.each do |group|
-  PatientProfile.find_or_create_by({group: group})
-end
-
-
-
-
-
 if Rails.env == "development"
   puts "Seeding Doctors:"
   (1..5).each do |i|
@@ -55,6 +47,7 @@ if Rails.env == "development"
     patient_profile.age = Faker::Number.between(30, 60)
     patient_profile.contact = Faker::PhoneNumber.cell_phone
     patient_profile.date_of_birth = Faker::Date.between(30.years.ago, 60.years.ago)
+    patient_profile.blood_group = PatientProfile::BloodGroup.all.sample.code
     patient_profile.save!
 
     dot
