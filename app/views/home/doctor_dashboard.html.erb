@@ -1,0 +1,34 @@
+<h2>Upcoming Appointments</h2>
+<div class="col-md-6">
+  <div class="well">
+  <div class="first row">  
+    <% @next_appointments.each do |consultation|%>
+      <h2><%= consultation.patient_profile.user.name %></h2>
+      <h3><%= consultation.patient_profile.unique_id %></h3>
+      <p><%= consultation.appointment_date %></p>
+      <p><%= consultation.comments%></p>
+    <%end%>
+    <%= link_to "Book Appointment" , new_consultation_path, class: "btn btn-primary" %>
+  </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="well">
+  <h2>Search patient By ID</h2>
+  
+  <%= form_tag((patient_profiles_path), :method => "get", id: "search-form", remote: true) do %>
+    <h4><%= text_field_tag :search, params[:search], placeholder: "Search Patient" %></h4>
+    <p><%= submit_tag "Search" , class: "btn btn-primary" %></p>
+  <% end %>
+  <br>
+
+  <div class="progress progress-striped active">
+    <div class="progress-bar" style="width: 45%"></div>
+  </div>
+  <div id="patient_search">
+    
+  </div>
+</div>
+</div>
+
+

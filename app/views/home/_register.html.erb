@@ -1,0 +1,26 @@
+<div class="tab-pane" role="tabpanel" id="step2">
+  <div class="container-fluid">
+    <fieldset class="well">
+      <h3>Profile Details</h3>
+      <div class="form-group">
+        <div class="col-lg-10">
+          <%= f.input :age, required: true, input_html: { class: "form-control control-label"} %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10">
+          <%= f.input :date_of_birth, required: true, html5: true, as: :date %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-lg-10">
+        <%= f.input :blood_group, collection: PatientProfile::BloodGroup.all , label_method: :name ,required: true,  value_method: :code, include_blank: false, input_html: { class: "form-control control-label"} %>
+        </div>
+      </div>
+       <ul class="list-inline pull-right">
+        <li><button type="button" class="btn btn-primary next-step" >Save and continue</button></li>
+      </ul>
+    </fieldset>
+  </div>
+</div>

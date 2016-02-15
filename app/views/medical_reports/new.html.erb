@@ -1,0 +1,22 @@
+<div class="container row">
+  <div class="col-md-6">
+    <% if !@medical_report.errors.empty? %>
+      <div class = "alert alert-error">   
+        <ul>
+          <% @medical_report.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <h1>Add report:</h1>
+      <%= simple_form_for [@patient_profile , @medical_report] do |f|%>
+        <%= f.input :title %>
+        <%= f.input :report_date%>
+        <%= f.input :attachment, as: :file , class: "btn btn-primary btn-block"%>
+        <%= f.input :prescription, as: :radio_buttons %>
+        <%= f.submit:save , class: "btn btn-primary btn-block"%>
+      <% end %>
+  </div>
+</div>
+
