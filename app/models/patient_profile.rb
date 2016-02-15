@@ -24,6 +24,7 @@ class PatientProfile < ActiveRecord::Base
   # after_update :unique_id
   after_save :populate_unique_id
 
+
   has_many :medical_reports
 
   module BloodGroup
@@ -60,6 +61,10 @@ class PatientProfile < ActiveRecord::Base
 
   def self.search(search)
     where(unique_id: search) 
+  end
+
+  def age
+    ((Time.now - self.date_of_birth.to_time)/1.year).to_i
   end
 
 private
