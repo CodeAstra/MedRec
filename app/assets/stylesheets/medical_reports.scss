@@ -77,6 +77,14 @@
         border-bottom: 14px solid transparent;
         content: "";
       }
+
+      h3 {
+        color: red;
+      }
+
+      h5 {
+        color: rebeccapurple;
+      }
     }
   }
 
@@ -157,5 +165,15 @@
         right: auto;
       }
     }
+  }
+}
+
+.anim {
+  h1 {
+    color: #4582EC;
+  }
+  
+  .control-label {
+    color: red;
   }
 }
