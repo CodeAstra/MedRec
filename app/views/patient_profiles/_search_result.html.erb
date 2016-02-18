@@ -1,9 +1,9 @@
 <div class="well">
-  <h2>Name: <%= @patient_profile.user.name %></h2>
-  <h5>Age: <%= @patient_profile.age%></h5>
-  <h5>ID: <%= @patient_profile.unique_id %></h5>
-  <h5>City: <%= @patient_profile.city %></h5>
-  <h5>BloodGroup: <%= PatientProfile::BloodGroup.name_from_code(@patient_profile.blood_group)%></h5>  
+  <h4 >Name: <%= @patient_profile.user.name %></h4>
+  <p class= "text-muted">Age: <%= @patient_profile.age%></p>
+  <p class= "text-muted">ID: <%= @patient_profile.unique_id %></p>
+  <p class= "text-muted">City: <%= @patient_profile.city %></p>
+  <p class= "text-muted">BloodGroup: <%= PatientProfile::BloodGroup.name_from_code(@patient_profile.blood_group)%></p>  
   <%= link_to "Book Appointment", new_consultation_path(patient_unique_id: @patient_profile.unique_id), class: "btn btn-primary" %>
   <%= link_to "View Medical History", patient_profile_medical_reports_path(@patient_profile), class: "btn btn-primary" %>
 </div>
