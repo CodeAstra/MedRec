@@ -1,17 +1,17 @@
 
 <div class="container">
   <div class="page-header">
-    <h1 id="timeline">Track Medical Records</h1>
+    <h2 class= "text-primary" id="timeline">Track Medical Records</h2>
   </div>
   <ul class="timeline">
     <li>
       <div class="timeline-badge primary"><i class="fa fa-book"></i></div>
       <div class="timeline-panel">
         <div class="timeline-heading">
-          <h4 class="timeline-title">Book New Appointment</h4>
+          <h4 class="timeline-title text-warning">Book New Appointment</h4>
         </div>
         <div class="timeline-body">
-          <p><%= link_to "Book New Appointment", doctor_profiles_path, class: "btn btn-info" %></p>
+          <p><%= link_to "Book New Appointment", doctor_profiles_path, class: "btn btn-primary" %></p>
         </div>
       </div>
     </li>
@@ -20,7 +20,7 @@
         <div class="timeline-badge info"><i class="fa fa-calendar-check-o"></i></div>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <h4 class="timeline-title">Upcoming Appointments</h4>
+            <h4 class="timeline-title text-warning">Upcoming Appointments</h4>
           </div>
           <div class="timeline-body">
             <p><%= "#{consultation.doctor_profile.user.name} #{consultation.appointment_date}" %></p>
@@ -29,7 +29,7 @@
       </li>
     <% end %> 
     <li>
-      <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+      <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
       <div class="timeline-panel">
         <div class="timeline-heading">
           <h4 class="timeline-title">Track a record</h4>
