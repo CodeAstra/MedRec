@@ -9,14 +9,14 @@
         </ul>
       </div>
     <% end %>
-      <h1>Add report:</h1>
-      <%= simple_form_for [@patient_profile , @medical_report] do |f|%>
-        <%= f.input :title %>
-        <%= f.input :report_date%>
-        <%= f.input :attachment, as: :file , class: "btn btn-primary btn-block"%>
-        <%= f.input :prescription, as: :radio_buttons %>
-        <%= f.submit:save , class: "btn btn-primary btn-block"%>
-      <% end %>
+    <h2 class = "text-primary">Add report:</h2>
+    <%= simple_form_for [@patient_profile , @medical_report] do |f|%>
+      <%= f.input :title %>
+      <%= f.input :report_date%>
+      <%= f.input :attachment, as: :file , class: "btn btn-primary btn-block"%>
+      <%= f.input :prescription, as: :radio_buttons %>
+      <%= f.submit:save , class: "btn btn-primary btn-block"%>
+    <% end %>
   </div>
 </div>
 
