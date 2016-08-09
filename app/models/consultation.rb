@@ -18,6 +18,8 @@ class Consultation < ActiveRecord::Base
   belongs_to :patient_profile
   belongs_to :doctor_profile 
 
+  enum status: {'Pending': 0,'Confirmed': 1, 'Rejected': 2, 'Revisit':3 }
+
 private
   def set_patient_from_unique_id
     return if self.patient_unique_id.nil?

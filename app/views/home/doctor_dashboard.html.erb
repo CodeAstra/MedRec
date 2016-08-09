@@ -1,34 +1,59 @@
-<h3 class= "text-warning">Upcoming Appointments</h3>
-<div class="col-md-6">
-  <div class="well">
-    <% @next_appointments.each do |consultation|%>
-      <div class="first row">
-        <div class="col-md-6">  
-          <h4>Name :<%= consultation.patient_profile.user.name %>
-          </h4>
-          <h5 class= "text-muted"> ID :<%= consultation.patient_profile.unique_id %></h5>
-          <p class= "text-danger">Date :<%= consultation.appointment_date %></p>
-          <p class= "text-danger">Reason :<%= consultation.comments%></p>
+<div class="row">
+  <div class="col-md-4">
+    <h3 class= "text-warning">Confirmed Appointments</h3>
+    <%  @accepted_appointments.each do |consultation| %>
+      <div class="well">
+         <div class="first row">
+          <div class="col-md-6">  
+            <h4>Name :<%= consultation.patient_profile_id %>
+            </h4>
+            <h5 class= "text-muted"> ID :<%= consultation.patient_profile.unique_id %></h5>
+            <p class= "text-danger">Date :<%= consultation.appointment_date %></p>
+            <p class= "text-danger">Reason :<%= consultation.comments%></p>
+            <p>Status: <%= consultation.status%></p>
+          </div>
+          <div class="col-md-6">
+            (<%=consultation.patient_profile.age %>M)
+          </div>
         </div>
-        <div class="col-md-6">
-          (<%=consultation.patient_profile.age %>M)
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h3 class= "text-warning">Pending Appointments</h3>
+    <% @next_appointments.each do |consultation|%>
+      <div class="well">
+        <div class="first row">
+          <div class="col-md-6">  
+            <h4>Name :<%= consultation.patient_profile_id %>
+            </h4>
+            <h5 class= "text-muted"> ID :<%= consultation.patient_profile.unique_id %></h5>
+            <p class= "text-danger">Date :<%= consultation.appointment_date %></p>
+            <p class= "text-danger">Reason :<%= consultation.comments%></p>
+            <p>Status: <%= consultation.status%></p>
+            <%= link_to "Confirm",consultation_path(consultation.id),method: :put%>
+            <%= link_to "reject", consultation_path(consultation), method: :delete%>
+          </div>
+          <div class="col-md-6">
+            (<%=consultation.patient_profile.age %>M)
+          </div>
         </div>
       </div>
     <%end%>
-    <%= link_to "Book Appointment" , new_consultation_path, class: "btn btn-primary" %>
+    <%= link_to "Book Appointment" , new_consultation_path, class: "btn btn-primary"%>
   </div>
-</div>
-<div class="col-md-6">
-  <div class="text-center">
-    <h3 class= "text-warning">Search patient By ID</h3>
-    <%= form_tag((patient_profiles_path), :method => "get", id: "search-form", remote: true) do %>
-      <p><%= text_field_tag :search, params[:search], placeholder: "Search Patient" %></p>
-      <p><%= submit_tag "Search" , class: "btn btn-primary" %></p>
-    <% end %>
-  </div>
-  <br>
-  <div id="patient_search">
-    
+  <div class="col-md-4">
+    <div class="text-center">
+      <h3 class= "text-warning">Search patient By ID</h3>
+      <%= form_tag((patient_profiles_path), :method => "get", id: "search-form", remote: true) do %>
+        <p><%= text_field_tag :search, params[:search], placeholder: "Search Patient" %></p>
+        <p><%= submit_tag "Search" , class: "btn btn-primary" %></p>
+      <% end %>
+    </div>
+    <br>
+    <div id="patient_search">
+      
+    </div>
   </div>
 </div>
 

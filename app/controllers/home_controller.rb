@@ -16,13 +16,13 @@ class HomeController < ApplicationController
         render :patient_dashboard
       else
         @doctor_profile = current_user.doctor_profile
+        @accepted_appointments = @doctor_profile.consultations.where(status: 1)
         @next_appointments = @doctor_profile.consultations
-            .where('appointment_date >= ?' , Date.today)      
+            .where('appointment_date >= ?' , Date.today) && @doctor_profile.consultations.where(status: 0)  
         render :doctor_dashboard
         @patient_profile = PatientProfile.all
         if params[:search]
           @patient_search_profiles = PatientProfile.search(params[:search]).order("created_at: :desc")
-
         else
           @patient_search_profiles = PatientProfile.all.order('created_at: :desc')
         end

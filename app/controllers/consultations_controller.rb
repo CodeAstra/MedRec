@@ -1,5 +1,5 @@
 class ConsultationsController < ApplicationController
-
+  before_action :fetch_consultation, only:[:update ,:destroy]
 
   def new
     @consultation = Consultation.new
@@ -30,10 +30,26 @@ class ConsultationsController < ApplicationController
     @consultations = Consultation.all
   end
 
+  def update
+    @consultation.update(:status => 1)
+    @consultation.save
+    redirect_to root_path
+  end
+
+  def destroy
+    #@consultation = Consultation.find(params[:id])
+    @consultation.destroy
+    redirect_to root_path
+  end
+
 
 private
   def consultation_params
-    params.require(:consultation).permit( :patient_profile_id, :doctor_profile_id, :patient_unique_id , :appointment_date, :comments)    
+    params.require(:consultation).permit( :patient_profile_id, :doctor_profile_id, :patient_unique_id , :appointment_date, :comments , :status)    
+  end
+
+  def fetch_consultation
+    @consultation = Consultation.find_by(params[:id])
   end
 
 end
