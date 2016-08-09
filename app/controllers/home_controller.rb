@@ -12,7 +12,9 @@ class HomeController < ApplicationController
       if current_user.patient?
         @patient_profile = current_user.patient_profile
         @upcoming_consultations = @patient_profile.consultations
-            .where('appointment_date >= ?', Date.today)
+            .where('appointment_date >= ?', Date.today) &&  @patient_profile.consultations.where(status: 1)
+        @pending_consultations = @patient_profile.consultations
+            .where('appointment_date >= ?', Date.today) &&  @patient_profile.consultations.where(status: 0)
         render :patient_dashboard
       else
         @doctor_profile = current_user.doctor_profile

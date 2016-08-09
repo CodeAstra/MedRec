@@ -40,5 +40,18 @@
         </div>
       </div>
     </li>
+    <% @pending_consultations.each do |consultation| %> 
+      <li class="timeline-inverted">
+        <div class="timeline-badge info"><i class="fa fa-calendar-check-o"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title text-warning">Pending Appointments</h4>
+          </div>
+          <div class="timeline-body">
+            <p><%= "#{consultation.doctor_profile.user.name} #{consultation.appointment_date}" %></p>
+          </div>
+        </div>
+      </li>
+    <% end %> 
   </ul>
 </div>
