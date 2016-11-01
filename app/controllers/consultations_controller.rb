@@ -32,13 +32,14 @@ class ConsultationsController < ApplicationController
   end
 
   def update
-    @consultation.update(:status => 1)
-    @consultation.save
-    redirect_to root_path
+      @consultation = Consultation.find(params[:id])
+      @consultation.update(:status => 1)
+      @consultation.save
+      redirect_to root_path
   end
 
   def destroy
-    #@consultation = Consultation.find(params[:id])
+    @consultation = Consultation.find(params[:id])
     @consultation.destroy
     redirect_to root_path
   end

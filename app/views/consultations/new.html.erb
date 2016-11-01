@@ -1,7 +1,7 @@
 <% if current_user.patient?%>
   <h4>Book an appointment with <%= @consultation.doctor_profile.user.name %></h4>
 <% elsif current_user.doctor? %>
-   <h3 class= "text-warning">Booking for <%#= @patient_profile.user.name%></h3>
+   <h3 class= "text-warning">Booking Confirmation</h3>
 <% end%>
 <div class="row">
   <%= simple_form_for @consultation do |f|%>
