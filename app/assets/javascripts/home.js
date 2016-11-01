@@ -1,4 +1,7 @@
 $(document).ready(function () {
+     
+      //For patients Dashboard
+
     //Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
     
@@ -32,3 +35,5 @@ function nextTab(elem) {
 function prevTab(elem) {
   $(elem).prev().find('a[data-toggle="tab"]').click();
 }
+
+

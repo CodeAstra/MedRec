@@ -2,50 +2,54 @@
     <%= link_to "Click Here" , new_consultation_path%>
 </p>
 <div class="row">
-  <div class="col-md-4">
-    <h3 class= "text-warning">Confirmed Appointments</h3>
-    <%  @accepted_appointments.each do |consultation| %>
-      <div class="well">
-         <div class="first row">
-          <div class="col-md-6">
-            <h4>Name :<%= consultation.patient_profile_id %>
-            </h4>
-            <h5 class= "text-muted"> ID :<%= consultation.patient_profile.unique_id %></h5>
-            <p class= "text-danger">Date :<%= consultation.appointment_date %></p>
-            <p class= "text-danger">Reason :<%= consultation.comments%></p>
-            <p>Status: <%= consultation.status%></p>
+  <div class="col-md-8">
+    <ul class="nav nav-tabs">
+      <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">Confirmed Patients</a></li>
+      <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Pending Patients</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content row">
+      <div class="tab-pane fade col-md-8" id="home">
+        <%  @accepted_appointments.each do |consultation| %>
+          <div class="card-base">
+            <div class="card-icon">
+              <a href="#" title="Widgets" id="widgetCardIcon" class="imagecard">
+                <span class="glyphicon glyphicon-user"></span>
+              </a>
+              <div class="card-data widgetCardData">
+                <h2 class="box-title" style="color: #bb7824;">Name :<%= consultation.patient_profile_id %></h2>
+                <p>(<%=consultation.patient_profile.age %>M)</p>
+                <p>Date of Appointment: <%= consultation.appointment_date %></p>
+                <p>Reason: <%= consultation.comments%></p>
+                <p>UUID: :<%= consultation.patient_profile.unique_id %></p>
+              </div>
+            </div>
           </div>
-          <div class="col-md-6">
-            (<%=consultation.patient_profile.age %>M)
+        <% end %>
+      </div>
+      <div class="tab-pane fade active in row" id="profile">
+        <div class="col-md-8">
+          <% @next_appointments.each do |consultation|%>
+          <div class="card-base">
+            <div class="card-icon">
+              <a href="#" title="Widgets" id="widgetCardIcon" class="imagecard">
+                <span class="glyphicon glyphicon-user"></span>
+              </a>
+              <div class="card-data widgetCardData">
+                <h2 class="box-title" style="color: #bb7824;">Name: <%= consultation.patient_profile_id %></h2>
+                <p class="card-block text-center">Reason :<%= consultation.comments%></p>
+                <p>Age: (<%=consultation.patient_profile.age %>M) </p>
+                <p>Unique ID: <%= consultation.patient_profile.unique_id %></p>
+                <p class= "text-danger">Date :<%= consultation.appointment_date %></p>
+                <p>Status: <%= consultation.status%></p>
+                <%= link_to "Confirm", consultation_path(consultation.id), method: :patch, class: "btn btn-success" %>
+                <%= link_to "Reject", consultation_path(consultation), method: :delete, class: "btn btn-primary"%>
+              </div>
+            </div>
           </div>
+          <%end%>
         </div>
       </div>
-    <% end %>
-  </div>
-  <div class="col-md-4">
-    <h3 class= "text-warning">Pending Appointments</h3>
-    <% @next_appointments.each do |consultation|%>
-      <div class="well">
-        <div class="first row">
-          <div class="col-md-6">
-            <h4>Name :<%= consultation.patient_profile_id %>
-            </h4>
-            <h5 class= "text-muted"> ID :<%= consultation.patient_profile.unique_id %></h5>
-            <p class= "text-danger">Date :<%= consultation.appointment_date %></p>
-            <p class= "text-danger">Reason :<%= consultation.comments%></p>
-            <p>Status: <%= consultation.status%></p>
-            
-           
-            <%= link_to "Confirm", consultation_path(consultation.id), method: :patch %>
-
-            <%= link_to "Reject", consultation_path(consultation), method: :delete%>
-          </div>
-          <div class="col-md-6">
-            (<%=consultation.patient_profile.age %>M)
-          </div>
-        </div>
-      </div>
-    <%end%>
+    </div>
   </div>
   <div class="col-md-4">
     <div class="text-center">
@@ -61,5 +65,4 @@
     </div>
   </div>
 </div>
-
 
