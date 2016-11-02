@@ -1,4 +1,58 @@
 <body>
-  <h1> Hello, Welcome to MedReC</h1>
+  <!-- <h1> Hello, Welcome to MedReC</h1> -->
+  <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+            <h1>We are creative</h1>        
+            <h3>Get start with Healthcare and Medication </h3>
+        </hgroup>
+         <li>
+              <%= link_to "Login" , new_user_session_path,class: "btn btn-info btn-lg" %>
+              <%= link_to "New ??" , new_user_registration_path,class: "btn btn-info btn-lg"  %>
+          </li>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1>We are smart</h1>        
+            <h3>Having difficulties to consult Doctor?</h3>
+        </hgroup>    
+         <li>
+              <%= link_to "Login" , new_user_session_path,class: "btn btn-hero btn-lg" %>
+              <%= link_to "New ??" , new_user_registration_path,class: "btn btn-hero btn-lg"  %>
+          </li>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">        
+        <hgroup>
+            <h1>We are amazing</h1>        
+            <h3>Get start with Medrec to store</h3>
+        </hgroup>
+         <li>
+              <%= link_to "Login" , new_user_session_path,class: "btn btn-hero btn-lg" %>
+              <%= link_to "New ??" , new_user_registration_path,class: "btn btn-hero btn-lg"  %>
+          </li>
+      </div>
+    </div>
+  </div> 
+</div>
  
 </body>
