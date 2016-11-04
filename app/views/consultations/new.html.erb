@@ -12,8 +12,8 @@
       <% else %>
         <p><%= f.input :patient_unique_id %></p>
       <% end %>
-      <p><%= f.input :appointment_date %>
-      <%= f.input :comments %></p>
+      <p><%= f.input :appointment_date %></p>
+      <p><%= f.input :comments ,label: "Problem"%></p>
       <%= f.button :submit, class: "btn btn-primary" %>
     </div>
   <% end %>
