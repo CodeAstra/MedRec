@@ -16,6 +16,6 @@ class PatientProfilesController < ApplicationController
 
 private
   def patient_params
-    params.require(:patient_profile).permit(:age , :gender ,:blood_group ,:address , :date_of_birth, :city )
+    params.require(:patient_profile).permit( :gender ,:blood_group ,:address , :date_of_birth, :city )
   end 
 end

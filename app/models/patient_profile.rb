@@ -63,9 +63,9 @@ class PatientProfile < ActiveRecord::Base
     where(unique_id: search) 
   end
 
-  def age
-    ((Time.now - self.date_of_birth.to_time)/1.year).to_i
-  end
+  # def age
+  #   ((Time.now - self.date_of_birth.to_time)/1.year).to_i
+  # end
 
 private
   def populate_unique_id

@@ -17,11 +17,11 @@
             <div class="col-md-6">
 
               <div class="timeline-heading">
-                <h3 class="timeline-title">Title:<%= report.title %></h3>
+                <h4 class="text-success">Title:   <%= report.title %></h4>
               </div>
               <div class="timeline-body">
-                <h5>Test Type: <%= report.prescription ? "Prescription" : "Test"%></h5>
-                <h5>Date: <%= report.report_date %> </h5>
+                <h6 class="text-warning">Type: <%= report.prescription ? "Prescription" : "Test"%></h6>
+                <h6>Date: <%= report.report_date %> </h6>
               </div>
             </div>
             <div class="col-md-1 col-md-offset-4">
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-1">
               <% if current_user.patient?%>
-                <%= link_to content_tag(:i, '', class: "fa fa-times-circle-o fa-2x"), patient_profile_medical_report_path(@patient_profile , report), method: :delete %>
+                <%= link_to content_tag(:i, '', class: "fa fa-trash-o fa-2x"), patient_profile_medical_report_path(@patient_profile , report), method: :delete %>
               <%end%>
             </div>
           </div>

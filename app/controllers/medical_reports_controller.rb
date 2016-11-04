@@ -13,6 +13,7 @@ class MedicalReportsController < ApplicationController
     if current_user.patient?
       @patient_profile = current_user.patient_profile
     else
+
       @patient_profile = PatientProfile.find(params[:patient_profile_id])
     end
     @medical_report = @patient_profile.medical_reports.new(report_params)
