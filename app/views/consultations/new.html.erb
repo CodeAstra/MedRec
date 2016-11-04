@@ -12,7 +12,7 @@
       <% else %>
         <p><%= f.input :patient_unique_id %></p>
       <% end %>
-      <p><%= f.input :appointment_date, as: :date, html5: true %>
+      <p><%= f.input :appointment_date %>
       <%= f.input :comments %></p>
       <%= f.button :submit, class: "btn btn-primary" %>
     </div>

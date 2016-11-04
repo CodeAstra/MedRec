@@ -21,6 +21,7 @@
                 <p>Date of Appointment: <%= consultation.appointment_date %></p>
                 <p>Reason: <%= consultation.comments%></p>
                 <p>UUID: :<%= consultation.patient_profile.unique_id %></p>
+                <%= link_to "View medical history", patient_profile_medical_reports_path(consultation.patient_profile.id), class: "btn btn-info"%>
               </div>
             </div>
           </div>
